@@ -1,1 +1,14 @@
 @import "tailwindcss";
+
+@theme {
+    --font-abril: "Abril Fatface", system-ui;
+    --font-playfair: "Playfair Display Variable", serif;
+
+    --color-moutarde : oklch(55.35% 0.1076 74.77);
+    --color-rouge : oklch(40.12% 0.1427 30.23);
+    --color-taupe : oklch(74.39% 0.0314 85.56);
+    --color-beige : oklch(95.05% 0.0131 82.4)
+
+
+
+}

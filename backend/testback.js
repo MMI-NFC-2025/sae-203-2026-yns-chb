@@ -1,5 +1,5 @@
-import { addOrUpdateRecord } from './backend.mjs';
-
+import {addOrUpdateRecord} from './backend.mjs';
+/*
 // liste de tous les artistes triés par date de représentation.
 try {
     const records = await getArtistsByDate();
@@ -16,6 +16,7 @@ try {
 } catch (e) {
     console.error(e);
 }
+    
 
 // liste de tous les artistes triés par ordre alphabétique.
 try {
@@ -33,7 +34,7 @@ try {
     console.error(e);
 }
 
-    
+  
 //infos d'une scène en donnant son id en paramètre.
 try {
     const record = await SceneId('m8tfb4hu5lh98pp');
@@ -41,14 +42,8 @@ try {
 } catch (e) {
     console.error(e);
 }
-    
-// tous les artistes se produisant sur une scène donnée par son id, triés par date.
-try {
-    const record = await SceneId('m8tfb4hu5lh98pp');
-    console.log(JSON.stringify(record, null, 2));
-} catch (e) {
-    console.error(e);
-}
+   
+
 
 // tous les artistes se produisant sur une scène donnée par son id, triés par date.
 try {
@@ -64,7 +59,7 @@ try {
     console.log(JSON.stringify(records, null, 2));
 } catch (e) {
     console.error(e);
-}
+}*/
     
 // permet d'ajouter ou modifier les informations d'un artiste ou d'une scène.
 try {
