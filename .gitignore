@@ -28,5 +28,19 @@ pnpm-debug.log*
 **/CHANGELOG.md
 **/auxiliary.db-shm
 **/auxiliary.db-wal
+
+# PocketBase data and logs
+project/pocketbase_0.36.6_windows_arm64/pb_data/
+project/pocketbase_0.36.6_windows_arm64/pb_logs/
 **/data.db-shm
 **/data.db-wal
+
+# PocketBase
+pocketbase/pb_data/*
+!pocketbase/pb_data/types.d.ts
+pocketbase/pocketbase
+pocketbase/pocketbase.exe
+pocketbase/pb_data.zip
+pocketbase/CHANGELOG.md
+pocketbase/LICENSE.md
+pocketbase/pb_public
