@@ -1,0 +1,60 @@
+---
+import { Image } from 'astro:assets';
+
+
+import Facebook from '../assets/icons/Bulle_facebook.svg';
+import Instagram from '../assets/icons/Bulle_insta.svg';
+import TwitterX from '../assets/icons/Bulle_X.svg';
+import Youtube from '../assets/icons/Bulle_youtube.svg';
+---
+
+<footer class="bg-noir text-white py-20 px-6">
+    <div class="max-w-7xl mx-auto">
+        <div class="grille gap-y-16">
+            
+            <div class="col-span-12 lg:col-span-4 flex flex-col gap-6">
+                <h2 class="font-abril text-moutarde text-4xl">Flying Tap Fest</h2>
+                <p class="font-playfair text-lg opacity-80 leading-relaxed max-w-sm">
+                    Le festival de claquettes qui fait vibrer Montbéliard chaque été. 
+                    Une célébration de la danse, du rythme et de la culture tap.
+                </p>
+            </div>
+
+            <div class="col-span-12 lg:col-span-4 flex flex-col gap-6">
+                <h3 class="font-abril text-moutarde text-2xl uppercase tracking-wider">Liens Rapides</h3>
+                <nav class="flex flex-col gap-4">
+                    <a href="/" class="font-playfair text-lg hover:text-moutarde transition-colors w-fit">Le Festival</a>
+                    <a href="/programme" class="font-playfair text-lg hover:text-moutarde transition-colors w-fit">Programme</a>
+                    <a href="/artistes" class="font-playfair text-lg hover:text-moutarde transition-colors w-fit">Artistes</a>
+                    <a href="/infos" class="font-playfair text-lg hover:text-moutarde transition-colors w-fit">Infos Pratiques</a>
+                    <a href="/contact" class="font-playfair text-lg hover:text-moutarde transition-colors w-fit">Contact</a>
+                </nav>
+            </div>
+
+            <div class="col-span-12 lg:col-span-4 flex flex-col gap-6">
+                <h3 class="font-abril text-moutarde text-2xl uppercase tracking-wider">Suivez-nous</h3>
+                <div class="flex gap-4">
+                    <a href="https://facebook.com" target="_blank" class="hover:scale-110 transition-transform">
+                        <img src={Facebook.src} alt="Facebook" class="w-12 h-12" />
+                    </a>
+                    <a href="https://youtube.com" target="_blank" class="hover:scale-110 transition-transform">
+                        <img src={Youtube.src} alt="Youtube" class="w-12 h-12" />
+                    </a>
+                    <a href="https://x.com" target="_blank" class="hover:scale-110 transition-transform">
+                        <img src={TwitterX.src} alt="X (Twitter)" class="w-12 h-12" />
+                    </a>
+                    <a href="https://instagram.com" target="_blank" class="hover:scale-110 transition-transform">
+                        <img src={Instagram.src} alt="Instagram" class="w-12 h-12" />
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-span-12 border-t border-white/10 pt-10 mt-4 text-center">
+                <p class="font-playfair opacity-60 text-lg italic">
+                    © 2026 Flying Tap Fest. Tous droits réservés.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</footer>
