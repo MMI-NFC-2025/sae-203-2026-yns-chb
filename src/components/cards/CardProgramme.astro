@@ -1,0 +1,50 @@
+---
+// src/components/CardProgramme.astro
+import PbImage from "../PbImage.astro";
+
+interface Props {
+    nom: string;
+    genre_musicale: string;
+    scene: string;
+    horaire: string;
+    imgSrc?: string;
+    record?: any;
+    recordImage?: string;
+}
+
+const { nom, genre_musicale, scene, horaire, imgSrc = "", record, recordImage = "" } = Astro.props;
+---
+<div class="bg-taupe rounded-[40px] overflow-hidden flex flex-col group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-black/5">
+    
+    <div class="w-full aspect-square overflow-hidden bg-black/5">
+        <PbImage
+            record={record}
+            recordImage={Array.isArray(record.Image) ? record.Image[0] : record.Image}
+            fit="cover" 
+            className="w-full h-full transition-transform duration-700 group-hover:scale-110" 
+        />
+    </div>
+
+    <div class="p-8 flex flex-col gap-5 text-left">
+        <div>
+            <h3 class="font-abril text-moutarde text-2xl lg:text-3xl uppercase leading-tight">
+                {nom}
+            </h3>
+            <p class="font-playfair text-black text-lg lg:text-xl mt-1 font-medium">
+                {genre_musicale}
+            </p>
+        </div>
+
+        <div class="flex flex-col gap-3 border-t border-black/10 pt-5">
+            <p class="font-playfair text-xl lg:text-2xl">
+                <span class="text-rouge font-bold">Horaire :</span> 
+                <span class="text-black ml-3">{horaire}</span>
+            </p>
+            
+            <p class="font-playfair text-xl lg:text-2xl">
+                <span class="text-rouge font-bold">Scène :</span> 
+                <span class="text-black ml-3">{scene}</span>
+            </p>
+        </div>
+    </div>
+</div>

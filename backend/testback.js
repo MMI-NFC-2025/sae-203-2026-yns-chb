@@ -1,4 +1,4 @@
-import {addOrUpdateRecord} from './backend.mjs';
+import { ArtistsBySceneName} from './backend.mjs';
 /*
 // liste de tous les artistes triés par date de représentation.
 try {
@@ -59,7 +59,7 @@ try {
     console.log(JSON.stringify(records, null, 2));
 } catch (e) {
     console.error(e);
-}*/
+}
     
 // permet d'ajouter ou modifier les informations d'un artiste ou d'une scène.
 try {
@@ -109,3 +109,6 @@ try {
 } catch (e) {
     console.error(e);
 }
+    */
+
+

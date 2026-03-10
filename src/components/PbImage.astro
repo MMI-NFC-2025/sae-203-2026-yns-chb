@@ -1,0 +1,31 @@
+---
+import { getImageUrl } from "../../backend/backend.mjs";
+
+
+const { 
+    record, 
+    recordImage, 
+    width = 600, 
+    height = 800, 
+    fit = "cover", 
+    className = "" 
+} = Astro.props;
+
+
+const imageURL = await getImageUrl(record, recordImage);
+---
+
+{
+    imageURL && (
+        <img
+            src={imageURL}
+            alt={record.nom || "Image de l'artiste"} 
+            
+            width={width}
+            height={height}
+            
+            class={`${fit === "contain" ? "object-contain" : "object-cover"} w-full h-full ${className}`} 
+            loading="lazy"
+        />
+    )
+}

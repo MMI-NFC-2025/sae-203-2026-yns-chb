@@ -54,11 +54,11 @@ export async function getArtistsBySceneName(nom_scene) {
 export async function addOrUpdateRecord(collectionName, recordData) {
     try {
         if (recordData.id) {
-            
+
             const updated = await pb.collection(collectionName).update(recordData.id, recordData);
             return updated;
         } else {
-        
+
             const created = await pb.collection(collectionName).create(recordData);
             return created;
         }
@@ -67,4 +67,39 @@ export async function addOrUpdateRecord(collectionName, recordData) {
         throw e;
     }
 }
- 
+
+
+export async function getFilteredArtists(genre = "", scene = "", ordre = "asc") {
+    let filters = [];
+
+
+    if (genre && genre !== "all") {
+        filters.push(`genre_musicale = "${genre}"`);
+    }
+    if (scene && scene !== "all") {
+        filters.push(`scene = "${scene}"`);
+    }
+
+
+    const filterString = filters.join(' && ');
+    const sort = ordre === 'desc' ? '-horraire' : '+horraire';
+
+    const artists = await pb.collection('Artistes').getFullList({
+        filter: filterString,
+        sort: sort,
+    });
+
+    return artists;
+}
+
+export async function getToutesLesScenes() {
+    const scenes = await pb.collection('Scenes').getFullList({
+        sort: '+nom_scene',
+    });
+    return scenes;
+}
+
+export async function getImageUrl(record, recordImage) {
+    if (!record || !recordImage) return '';
+    return pb.files.getURL(record, recordImage);
+}
