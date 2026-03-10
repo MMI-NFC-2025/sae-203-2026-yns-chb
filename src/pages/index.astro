@@ -1,10 +1,65 @@
 ---
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
 ---
 
-<Layout>
-	<h1>Welcome to Astro!</h1>
+<Layout title="Accueil" description="Bienvenue au Flying Tap Fest, un festival de claquettes entre ciel et terre !">
+	<Hero />
+	<section class="bg-beige py-32 px-6">
+		<div class="max-w-7xl mx-auto">
+			<div class="grille items-center">
+				<div
+					class="lg:col-span-3 flex flex-col items-center text-center gap-2"
+				>
+					<span
+						class="font-abril text-rouge text-8xl lg:text-9xl leading-none transition-transform hover:scale-110 duration-300 cursor-default"
+					>
+						100+
+					</span>
+					<span class="font-playfair text-black text-2xl italic">
+						Drones pour le show
+					</span>
+				</div>
+
+				<div
+					class="lg:col-span-3 flex flex-col items-center text-center gap-2"
+				>
+					<span
+						class="font-abril text-rouge text-8xl lg:text-9xl leading-none transition-transform hover:scale-110 duration-300 cursor-default"
+					>
+						2
+					</span>
+					<span class="font-playfair text-black text-2xl italic">
+						Jours de festival
+					</span>
+				</div>
+
+				<div
+					class="lg:col-span-3 flex flex-col items-center text-center gap-2"
+				>
+					<span
+						class="font-abril text-rouge text-8xl lg:text-9xl leading-none transition-transform hover:scale-110 duration-300 cursor-default"
+					>
+						1k
+					</span>
+					<span class="font-playfair text-black text-2xl italic">
+						Spectateurs
+					</span>
+				</div>
+
+				<div
+					class="lg:col-span-3 flex flex-col items-center text-center gap-2"
+				>
+					<span
+						class="font-abril text-rouge text-8xl lg:text-9xl leading-none transition-transform hover:scale-110 duration-300 cursor-default"
+					>
+						8+
+					</span>
+					<span class="font-playfair text-black text-2xl italic">
+						Artistes sur scène
+					</span>
+				</div>
+			</div>
+		</div>
+	</section>
 </Layout>
