@@ -1,0 +1,41 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+    title: string;
+    subtitle: string; 
+    description: string;
+    imgSrc: any;
+}
+
+const { title, subtitle, description, imgSrc } = Astro.props;
+---
+
+<div class="bg-taupe rounded-[40px] overflow-hidden flex flex-col shrink-0 w-[280px] lg:w-[320px] h-full shadow-sm">
+    
+    <div class="relative aspect-[4/5] w-full shrink-0 overflow-hidden">
+        <Image 
+            src={imgSrc} 
+            alt={title} 
+            class="w-full h-full object-cover mix-blend-multiply opacity-80" 
+        />
+        <div class="absolute inset-0 bg-taupe/10 mix-blend-overlay"></div>
+    </div>
+
+    <div class="p-6 lg:p-8 flex flex-col flex-grow text-center gap-3">
+        
+        <div class="flex flex-col gap-0.5">
+            <h3 class="font-abril text-2xl lg:text-3xl text-black leading-tight">
+                {title}
+            </h3>
+            <p class="font-abril text-rouge text-lg lg:text-xl  leading-tight">
+                {subtitle}
+            </p>
+        </div>
+
+        <p class="font-playfair text-black text-base lg:text-lg leading-snug opacity-90">
+            {description}
+        </p>
+        
+    </div>
+</div>

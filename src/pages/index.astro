@@ -2,12 +2,12 @@
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
-import CardFestival from "../components/CardFestival.astro";
+import CardFestival from "../components/cards/CardFestival.astro";
 
 import dronesImg from "../assets/img/drone.jpg";
 import programmeImg from "../assets/img/programme.jpg";
 import artistesImg from "../assets/img/artistes.jpg";
-import infosImg from "../assets/img/infos_pratiques.jpg";
+import infosImg from "../assets/img/infos_pratiques.avif";
 
 import logoDecathlon from '../assets/img/decathlon.jpg';
 import logoPMA from '../assets/img/pma.jpg';
@@ -183,7 +183,7 @@ const duplicatedLogos = [...logos, ...logos, ...logos, ...logos];
             <h2 class="font-abril text-white text-5xl lg:text-8xl leading-tight mb-8">
                 Prêt à vivre <br/> l'expérience ?
             </h2>
-            <p class="font-playfair text-white text-xl lg:text-3xl  mb-14 opacity-90">
+            <p class="font-playfair text-white text-xl lg:text-3xl ic mb-14 opacity-90">
                 Ne manquez pas l'événement <br class="md:hidden"/> incontournable de l'été 2026
             </p>
             <a href="/Contact" class="bg-beige text-rouge font-abril text-xl lg:text-2xl px-16 py-6 rounded-full hover:scale-105 transition-transform duration-300 shadow-xl">

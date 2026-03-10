@@ -1,3 +1,221 @@
 ---
-import
+import Layout from "../../layouts/Layout.astro";
+import { Image } from 'astro:assets';
+import CardEquipe from "../../components/cards/CardEquipe.astro";
+
+import infosImage from '../../assets/img/infos_pratiques.avif';
+import Marie from '../../assets/img/Marie.jpg';
+import Thomas from '../../assets/img/Thomas.jpg';
+import Sophie from '../../assets/img/Sophie.jpg'; 
+import Lucas from '../../assets/img/Lucas.jpg';
+
+const equipe = [
+    { title: "Marie Dubois", subtitle: "Directrice Artistique", img: Marie, desc: "Danseuse et chorégraphe reconnue, Marie dirige le festival depuis sa création." },
+    { title: "Thomas Martin", subtitle: "Directeur Technique", img: Thomas, desc: "Expert en son et lumière, Thomas assure la qualité technique de tous les spectacles." },
+    { title: "Sophie Laurent", subtitle: "Coordinatrice", img: Sophie, desc: "Sophie gère la logistique et coordonne les équipes bénévoles avec passion." },
+    { title: "Lucas Bernard", subtitle: "Chargé de Communication", img: Lucas, desc: "Lucas pilote toute la communication et les relations presse du festival." },
+];
+
 ---
+
+<Layout title="À propos" description="Découvrez l'histoire et la vision du Flying Tap Fest, un festival de claquettes innovant à Montbéliard.">
+<section class="bg-beige min-h-screen py-20 lg:py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="grille">
+                
+                <div class="col-span-12 flex flex-col gap-12 lg:gap-16">
+                    
+                    <h1 class="font-abril text-moutarde text-7xl lg:text-9xl leading-[0.85] uppercase tracking-tighter">
+                        Le Festival
+                    </h1>
+
+                    <h2 class="font-abril text-rouge text-4xl lg:text-6xl">
+                        Notre Histoire
+                    </h2>
+
+                    <div class="flex flex-col gap-8 text-black font-playfair text-2xl lg:text-3xl leading-relaxed">
+                        <p>
+                            Le Flying Tap Fest est un festival né d'une ambition claire : 
+                            <strong class="font-bold text-black">réunir l'énergie rythmée des claquettes et la poésie lumineuse des drones</strong>, 
+                            afin de proposer une expérience artistique nouvelle. Imaginé dans le cadre d'une stratégie de communication axée sur la modernité et l'ouverture culturelle, le festival voit le jour avec la volonté de dépoussiérer la discipline des claquettes tout en respectant son héritage.
+                        </p>
+
+                        <p>
+                            Le festival se déroule au <strong class="font-bold text-black">Parc du Près-la-Rose à Montbéliard</strong>, 
+                            les <strong class="font-bold text-black">6 et 7 juin 2026</strong>, au début de la période estivale, pour accueillir aussi bien les familles, les passionnés de danse, que les curieux en quête d'expériences innovantes.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section class="bg-beige pb-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grille">
+                
+                <div class="col-span-12 md:col-span-12 lg:col-span-10 lg:col-start-2">
+                    
+                    <div class="overflow-hidden shadow-sm border border-black/5">
+                        <img 
+                            src={infosImage.src} 
+                            alt="Ambiance festive du festival" 
+                            class="w-full h-auto aspect-square object-cover"
+                        />
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-beige pb-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 mb-12">
+            <div class="grille">
+                <div class="col-span-12">
+                    <h2 class="font-abril text-rouge text-5xl lg:text-7xl">Notre équipe</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex gap-8 animate-scroll-equipe">
+            {[...Array(3)].map(() => ( // On duplique 3 fois pour l'infini
+                <>
+                    <CardEquipe 
+                        title="Marie Dubois" 
+                        subtitle="Directrice Artistique" 
+                        description="Danseuse et chorégraphe reconnue, Marie dirige le festival depuis sa création ." 
+                        imgSrc={Marie} 
+                    />
+                    <CardEquipe
+                        title="Thomas Martin" 
+                        subtitle="Directeur Technique" 
+                        description="Expert en son et lumière, Thomas assure la qualité technique de tous les spectacles." 
+                        imgSrc={Thomas} 
+                    />
+                    <CardEquipe
+                        title="Sophie Laurent" 
+                        subtitle="Coordinatrice" 
+                        description="Sophie gère la logistique et coordonne les équipes bénévoles." 
+                        imgSrc={Sophie} 
+                    />
+                    <CardEquipe
+                        title="Lucas Bernard" 
+                        subtitle="Chargé de Communication" 
+                        description="Lucas pilote toute la communication et les relations presse du festival" 
+                        imgSrc={Lucas} 
+                    />
+                </>
+            ))}
+        </div>
+    </section>
+   
+<section class="bg-beige py-24 px-6 border-t border-black/5">
+    <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-12 gap-8">
+            
+            <div class="col-span-12 mb-12">
+                <h2 class="font-abril text-rouge text-6xl lg:text-8xl leading-none">
+                    Nos Valeurs
+                </h2>
+            </div>
+
+            <div class="col-span-12 flex flex-col gap-16 lg:gap-24">
+                
+                <div class="flex flex-col gap-4">
+                    <h3 class="font-abril text-moutarde text-4xl lg:text-5xl uppercase">
+                        Éco-Responsabilité Exemplaire
+                    </h3>
+                    <p class="font-playfair text-black text-2xl lg:text-3xl leading-relaxed opacity-90">
+                        Le Flying Tap Fest place l'environnement au cœur de son organisation. Communication numérique, impressions sur papier recyclé et gestion rigoureuse des déchets garantissent un événement à l'empreinte aussi légère que nos pas de claquettes.
+                    </p>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <h3 class="font-abril text-moutarde text-4xl lg:text-5xl uppercase">
+                        Innovation & Créativité
+                    </h3>
+                    <p class="font-playfair text-black text-2xl lg:text-3xl leading-relaxed opacity-90">
+                        Nous réinventons l'expérience du spectacle vivant en fusionnant claquettes et drones lumineux. Cette approche moderne offre au public un univers visuel inédit, mêlant technologie, mouvement et poésie.
+                    </p>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <h3 class="font-abril text-moutarde text-4xl lg:text-5xl uppercase">
+                        Culture & Transmission
+                    </h3>
+                    <p class="font-playfair text-black text-2xl lg:text-3xl leading-relaxed opacity-90">
+                        Le festival s'engage à valoriser les claquettes comme discipline artistique accessible à tous. Ateliers, rencontres et cours permettent aux visiteurs de découvrir, apprendre et partager, quel que soit leur âge ou leur niveau.
+                    </p>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <h3 class="font-abril text-moutarde text-4xl lg:text-5xl uppercase">
+                        Ouverture au Public
+                    </h3>
+                    <p class="font-playfair text-black text-2xl lg:text-3xl leading-relaxed opacity-90">
+                        Pensé pour les jeunes, les familles, les passionnés comme les curieux, le Flying Tap Fest propose un programme intergénérationnel et inclusif, réunissant tradition, modernité et convivialité.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-beige py-24 px-6">
+    <div class="max-w-7xl mx-auto">
+        <div class="w-full bg-gradient-to-b from-rouge to-moutarde  p-12 lg:p-24 text-center flex flex-col gap-6 lg:gap-8 shadow-xl">
+            
+            <h2 class="font-abril text-beige text-6xl lg:text-9xl uppercase leading-none">
+                Édition 2026
+            </h2>
+
+            <div class="flex flex-col gap-2">
+                <p class="font-playfair text-beige text-2xl lg:text-4xl">
+                    "Un festival entre ciel et terre"
+                </p>
+                <p class="font-playfair text-beige text-2xl lg:text-4xl leading-tight">
+                    Une célébration des claquettes<br class="hidden lg:block" /> à travers les cultures
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+</Layout>
+
+ <style>
+    /* L'animation fait défiler la largeur d'une série de 4 cartes + gaps */
+    @keyframes scrollEquipe {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            /* On décale de la largeur exacte du groupe original (4 cartes) */
+            /* 380px (largeur) + 32px (gap) = 412px par carte */
+            transform: translateX(calc(-412px * 4));
+        }
+    }
+
+    .animate-scroll-equipe {
+        display: flex;
+        width: max-content;
+        animation: scrollEquipe 30s linear infinite;
+    }
+
+    /* Optionnel : le carrousel s'arrête quand on passe la souris dessus */
+    .hover\:pause:hover {
+        animation-play-state: paused;
+    }
+
+    /* Ajustement pour mobile si tes cartes changent de taille */
+    @media (max-width: 1024px) {
+        @keyframes scrollEquipe {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-352px * 4)); } /* 320px + 32px gap */
+        }
+    }
+</style>

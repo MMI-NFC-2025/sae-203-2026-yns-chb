@@ -1,11 +1,11 @@
 ---
+import ArrowRight from "../../assets/icons/Arrow_Badge_Right.svg";
 import { Image } from "astro:assets";
-import ArrowRight from "../assets/icons/Arrow_Badge_Right.svg";
 
 interface Props {
     title: string;
     description: string;
-    imgSrc: any; // Pour passer l'import de l'image
+    imgSrc: any; 
     href: string;
 }
 
@@ -15,8 +15,8 @@ const { title, description, imgSrc, href } = Astro.props;
 <div class="bg-beige rounded-[40px] overflow-hidden flex flex-col group transition-all duration-300 hover:shadow-xl h-full border border-black/5">
     
     <div class="relative aspect-video overflow-hidden">
-        <Image
-            src={imgSrc}
+        <img
+            src={imgSrc?.src ?? imgSrc}
             alt={title}
             class="w-full h-full object-cover opacity-90 transition-transform duration-500 group-hover:scale-105"
         />
