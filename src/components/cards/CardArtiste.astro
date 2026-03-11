@@ -1,0 +1,65 @@
+---
+import PbImage from "../PbImage.astro";
+
+interface Props {
+    artiste: any; // L'objet complet venant de PocketBase
+}
+
+const { artiste } = Astro.props;
+
+// PocketBase file fields can be either a string or an array; keep one filename.
+const rawImage = artiste.Image ?? artiste.photo;
+const imageArtiste = Array.isArray(rawImage) ? rawImage[0] : rawImage;
+---
+
+<div
+    class="bg-noir rounded-[50px] overflow-hidden flex flex-col group hover:shadow-2xl transition-all duration-500 h-full"
+>
+    <div class="relative w-full bg-white/5 flex items-center justify-center">
+        <PbImage
+            record={artiste}
+            recordImage={imageArtiste}
+            *
+            On
+            enlève
+            fit="contain"
+            pour
+            laisser
+            la
+            taille
+            naturelle
+            *
+            className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
+        />
+    </div>
+
+    <div class="p-10 lg:p-12 flex flex-col gap-6">
+        <div class="flex flex-col gap-2">
+            <h3
+                class="font-abril text-moutarde text-4xl lg:text-5xl leading-tight uppercase"
+            >
+                {artiste.nom}
+            </h3>
+            <p class="font-playfair text-rouge text-2xl font-bold italic">
+                {artiste.genre_musicale}
+            </p>
+        </div>
+
+        <div
+            class="flex flex-col gap-4 font-playfair text-beige/90 border-t border-white/10 pt-6"
+        >
+            <p class="text-2xl lg:text-3xl">
+                <span class="text-moutarde font-bold">Horaire :</span>
+                {artiste.horraire ?? artiste.horaire}
+            </p>
+            <p class="text-2xl lg:text-3xl">
+                <span class="text-moutarde font-bold">Date :</span>
+                {artiste.date}
+            </p>
+            <p class="text-2xl lg:text-3xl">
+                <span class="text-moutarde font-bold">Scène :</span>
+                {artiste.scene}
+            </p>
+        </div>
+    </div>
+</div>

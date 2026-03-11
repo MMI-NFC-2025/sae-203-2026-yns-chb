@@ -3,47 +3,49 @@
 import PbImage from "../PbImage.astro";
 
 interface Props {
-    nom: string;
-    genre_musicale: string;
-    scene: string;
-    horaire: string;
-    imgSrc?: string;
-    record?: any;
-    recordImage?: string;
+    artiste: any;
 }
 
-const { nom, genre_musicale, scene, horaire, imgSrc = "", record, recordImage = "" } = Astro.props;
+const { artiste } = Astro.props;
+
+// Sécurité pour l'image
+const rawImage = artiste.Image ?? artiste.photo;
+const imageArtiste = Array.isArray(rawImage) ? rawImage[0] : rawImage;
 ---
-<div class="bg-taupe rounded-[40px] overflow-hidden flex flex-col group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-black/5">
-    
-    <div class="w-full aspect-square overflow-hidden bg-black/5">
+
+<div
+    class="bg-taupe rounded-[50px] overflow-hidden flex flex-col group hover:shadow-xl transition-all duration-500 h-full border border-black/5"
+>
+    <div class="relative w-full flex items-center justify-center">
         <PbImage
-            record={record}
-            recordImage={Array.isArray(record.Image) ? record.Image[0] : record.Image}
-            fit="cover" 
-            className="w-full h-full transition-transform duration-700 group-hover:scale-110" 
+            record={artiste}
+            recordImage={imageArtiste}
+            className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
         />
     </div>
 
-    <div class="p-8 flex flex-col gap-5 text-left">
-        <div>
-            <h3 class="font-abril text-moutarde text-2xl lg:text-3xl uppercase leading-tight">
-                {nom}
+    <div class="p-10 lg:p-12 flex flex-col gap-6">
+        <div class="flex flex-col gap-2">
+            <h3
+                class="font-abril text-moutarde text-4xl lg:text-5xl leading-tight "
+            >
+                {artiste.nom}
             </h3>
-            <p class="font-playfair text-black text-lg lg:text-xl mt-1 font-medium">
-                {genre_musicale}
+            <p class="font-playfair text-rouge text-2xl font-bold ">
+                {artiste.genre_musicale}
             </p>
         </div>
 
-        <div class="flex flex-col gap-3 border-t border-black/10 pt-5">
-            <p class="font-playfair text-xl lg:text-2xl">
-                <span class="text-rouge font-bold">Horaire :</span> 
-                <span class="text-black ml-3">{horaire}</span>
+        <div
+            class="flex flex-col gap-4 font-playfair /80 border-t border-black/10 pt-6"
+        >
+            <p class="text-2xl lg:text-3xl">
+                <span class="text-rouge font-bold ">Horaire :</span>
+                {artiste.horraire ?? artiste.horaire}
             </p>
-            
-            <p class="font-playfair text-xl lg:text-2xl">
-                <span class="text-rouge font-bold">Scène :</span> 
-                <span class="text-black ml-3">{scene}</span>
+            <p class="text-2xl lg:text-3xl">
+                <span class="text-rouge font-bold ">Scène :</span>
+                {artiste.scene}
             </p>
         </div>
     </div>
