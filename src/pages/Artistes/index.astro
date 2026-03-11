@@ -9,19 +9,27 @@ const artistes = await pb.collection("artistes").getFullList({
 });
 ---
 
-<Layout title="Artistes - Flying Tap Fest">
+<Layout title="Artistes - Flying Tap Fest" description="Découvrez les artistes qui feront vibrer le Flying Tap Fest : des talents émergents aux légendes du tap dance, explorez leurs profils et préparez-vous à une expérience inoubliable." >
     <main class="bg-beige min-h-screen py-24">
         <div class="max-w-[1400px] mx-auto px-6">
             <h1
-                class="font-abril text-moutarde text-7xl md:text-8xl lg:text-[150px] mb-20  leading-none"
+                class="font-abril text-moutarde text-7xl md:text-8xl lg:text-[150px] mb-20 leading-none"
             >
                 Artistes
             </h1>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
-                {artistes.map((a) => <CardArtiste artiste={a} />)}
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                {
+                    artistes.map((a) => (
+                        <a
+                            href={`/Artistes/${a.id}`}
+                            class="block h-full group"
+                        >
+                            <CardArtiste artiste={a} />
+                        </a>
+                    ))
+                }
             </div>
-
             {
                 artistes.length === 0 && (
                     <div class="py-20 text-center">
