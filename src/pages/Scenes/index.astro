@@ -1,0 +1,73 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getAllScenes } from "../../../backend/backend.mjs";
+import PbImage from "../../components/PbImage.astro";
+
+// Récupération des scènes via ta fonction
+const scenes = await getAllScenes();
+---
+
+<Layout title="Les Scènes - Flying Tap Fest">
+    <main class="bg-beige min-h-screen pb-24">
+        <header class="max-w-[1850px] mx-auto px-4 lg:px-10 py-16 lg:py-24">
+            <h1
+                class="font-abril text-moutarde text-7xl lg:text-[120px] leading-none"
+            >
+                Les Scènes
+            </h1>
+            <p class="font-playfair text-rouge text-3xl lg:text-5xl mt-6">
+                Le cœur battant du festival
+            </p>
+        </header>
+
+        <section class="max-w-[1850px] mx-auto px-4 lg:px-10 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+                {
+                    scenes.map((scene) => (
+                        <a
+                            href={`/Scenes/${scene.id}`}
+                            class="group relative block w-full h-[500px] lg:h-[650px] overflow-hidden rounded-[60px] bg-noir shadow-2xl transition-all duration-500 hover:shadow-moutarde/20 cursor-pointer"
+                        >
+                            <div class="absolute inset-0 z-0">
+                                <PbImage
+                                    record={scene}
+                                    recordImage={scene.photo}
+                                    className="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-1000 group-hover:opacity-80"
+                                />
+                            </div>
+
+                            <div class="absolute inset-0 bg-gradient-to-t from-noir via-noir/20 to-transparent z-10" />
+
+                            <div class="absolute bottom-0 left-0 p-8 lg:p-16 w-full z-20">
+                                <h2 class="font-abril text-beige text-5xl lg:text-7xl uppercase leading-none mb-4 group-hover:text-moutarde transition-colors">
+                                    {scene.nom_scene}
+                                </h2>
+
+                                <div class="flex items-center gap-4">
+                                    <div class="w-10 h-px bg-moutarde" />
+                                    <p class="font-playfair text-moutarde text-xl lg:text-3xl italic">
+                                        {scene.localisation}
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="absolute top-8 right-8 bg-beige/10 backdrop-blur-md border border-beige/20 px-6 py-2 rounded-full z-20">
+                                <span class="text-beige font-playfair italic text-lg">
+                                    Plus d'infos
+                                </span>
+                            </div>
+                        </a>
+                    ))
+                }
+            </div>
+
+            {
+                scenes.length === 0 && (
+                    <p class="text-center font-playfair text-noir/50 text-2xl py-20">
+                        Aucune scène disponible.
+                    </p>
+                )
+            }
+        </section>
+    </main>
+</Layout>

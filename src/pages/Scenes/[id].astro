@@ -1,0 +1,87 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getArtistsBySceneId, SceneId } from "../../../backend/backend.mjs";
+import CardProgramme from "../../components/cards/CardProgramme.astro";
+import PbImage from "../../components/PbImage.astro";
+
+// 1. Récupération de l'ID et des données
+const { id } = Astro.params;
+const scene = await SceneId(id);
+const artistes = await getArtistsBySceneId(id);
+
+// Sécurité si la scène n'existe pas
+if (!scene) {
+    return Astro.redirect("/Scenes");
+}
+
+const pageTitle = `Programmation ${scene.nom_scene} - Flying Tap Fest`;
+const datesUniques: string[] = Array.from(
+    new Set(artistes.map((a: any) => a.date?.trim()).filter(Boolean)),
+);
+---
+
+<Layout title={pageTitle}>
+    <main class="bg-beige min-h-screen">
+        <header class="w-full bg-beige">
+            <div class="max-w-[1850px] mx-auto px-4 lg:px-10 py-12">
+                <a
+                    href="/Scenes"
+                    class="flex items-center gap-2 text-rouge font-playfair text-2xl mb-8 hover:underline"
+                >
+                    <span class="text-2xl">←</span> Retour à la liste des scènes
+                </a>
+
+                <h1
+                    class="font-abril text-moutarde text-7xl lg:text-[150px] leading-none mb-4"
+                >
+                    {scene.nom_scene}
+                </h1>
+                <p class="font-abril text-rouge text-4xl lg:text-6xl mb-12">
+                    {scene.localisation}
+                </p>
+            </div>
+
+            <div
+                class="w-full w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]"
+            >
+                <PbImage
+                    record={scene}
+                    recordImage={scene.photo}
+                    className="w-full h-auto min-h-[60vh] lg:h-[80vh] object-cover shadow-2xl"
+                />
+            </div>
+        </header>
+        <section class="max-w-[1850px] mx-auto px-4 lg:px-10 py-16">
+            <h2 class="font-abril text-rouge text-6xl lg:text-8xl mb-12">
+                Artistes Présents
+            </h2>
+
+            {
+                [...new Set(artistes.map((a) => a.date?.trim()))].map(
+                    (dateUnique) => (
+                        <div class="mb-20 w-full">
+                            <h3 class="font-abril text-moutarde text-4xl lg:text-5xl mb-10">
+                                {dateUnique}
+                            </h3>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12 lg:gap-20 w-full">
+                                {artistes
+                                    .filter(
+                                        (a) => a.date?.trim() === dateUnique,
+                                    )
+                                    .map((artiste) => (
+                                        <a
+                                            href={`/Artistes/${artiste.id}`}
+                                            class="block transition-transform duration-300 hover:scale-[1.02]"
+                                        >
+                                            <CardProgramme artiste={artiste} />
+                                        </a>
+                                    ))}
+                            </div>
+                        </div>
+                    ),
+                )
+            }
+        </section>
+    </main>
+</Layout>
