@@ -1,66 +1,66 @@
 ---
-
-
 import Facebook from "../assets/icons/Bulle_facebook.svg";
 import Instagram from "../assets/icons/Bulle_insta.svg";
 import TwitterX from "../assets/icons/Bulle_X.svg";
 import Youtube from "../assets/icons/Bulle_youtube.svg";
 ---
 
-<footer class="bg-noir text-white py-20 px-6">
+<footer class="bg-[var(--color-noir)] text-white py-16 px-6 lg:py-24">
     <div class="max-w-7xl mx-auto">
-        <div class="grille gap-y-16">
-            <div class="col-span-12 lg:col-span-4 flex flex-col gap-6">
-                <h2 class="font-abril text-moutarde text-4xl">
+        <div
+            class="flex flex-col lg:flex-row lg:justify-between gap-y-12 lg:gap-x-12 text-left"
+        >
+            <div class="flex flex-col gap-5 max-w-sm">
+                <h2
+                    class="font-abril text-[var(--color-moutarde)] text-4xl lg:text-5xl"
+                >
                     Flying Tap Fest
                 </h2>
-                <p
-                    class="font-playfair text-lg opacity-80 leading-relaxed max-w-sm"
-                >
+                <p class="font-playfair text-lg opacity-80 leading-relaxed">
                     Le festival de claquettes qui fait vibrer Montbéliard chaque
                     été. Une célébration de la danse, du rythme et de la culture
                     tap.
                 </p>
             </div>
 
-            <div class="col-span-12 lg:col-span-4 flex flex-col gap-6">
+            <div class="flex flex-col gap-6">
                 <h3
-                    class="font-abril text-moutarde text-2xl uppercase tracking-wider"
+                    class="font-abril text-[var(--color-moutarde)] text-2xl uppercase tracking-wider"
                 >
                     Liens Rapides
                 </h3>
                 <nav class="flex flex-col gap-4">
                     <a
                         href="/"
-                        class="font-playfair text-lg hover:text-moutarde transition-colors w-fit"
+                        class="font-playfair text-lg hover:text-[var(--color-moutarde)] transition-colors w-fit italic lg:not-italic"
                         >Le Festival</a
                     >
                     <a
                         href="/Programme"
-                        class="font-playfair text-lg hover:text-moutarde transition-colors w-fit"
+                        class="font-playfair text-lg hover:text-[var(--color-moutarde)] transition-colors w-fit italic lg:not-italic"
                         >Programme</a
                     >
                     <a
                         href="/Artistes"
-                        class="font-playfair text-lg hover:text-moutarde transition-colors w-fit"
+                        class="font-playfair text-lg hover:text-[var(--color-moutarde)] transition-colors w-fit italic lg:not-italic"
                         >Artistes</a
                     >
                     <a
                         href="/Info"
-                        class="font-playfair text-lg hover:text-moutarde transition-colors w-fit"
+                        class="font-playfair text-lg hover:text-[var(--color-moutarde)] transition-colors w-fit italic lg:not-italic"
                         >Infos Pratiques</a
                     >
                     <a
                         href="/Contact"
-                        class="font-playfair text-lg hover:text-moutarde transition-colors w-fit"
+                        class="font-playfair text-lg hover:text-[var(--color-moutarde)] transition-colors w-fit italic lg:not-italic"
                         >Contact</a
                     >
                 </nav>
             </div>
 
-            <div class="col-span-12 lg:col-span-4 flex flex-col gap-6">
+            <div class="flex flex-col gap-6">
                 <h3
-                    class="font-abril text-moutarde text-2xl uppercase tracking-wider"
+                    class="font-abril text-[var(--color-moutarde)] text-2xl uppercase tracking-wider"
                 >
                     Suivez-nous
                 </h3>
@@ -111,14 +111,16 @@ import Youtube from "../assets/icons/Bulle_youtube.svg";
                     </a>
                 </div>
             </div>
+        </div>
 
-            <div
-                class="col-span-12 border-t border-white/10 pt-10 mt-4 text-center"
+        <div
+            class="border-t border-white/10 pt-10 mt-16 text-center lg:text-center"
+        >
+            <p
+                class="font-playfair opacity-60 text-base lg:text-lg italic leading-relaxed"
             >
-                <p class="font-playfair opacity-60 text-lg italic">
-                    © 2026 Flying Tap Fest. Tous droits réservés.
-                </p>
-            </div>
+                © 2026 Flying Tap Fest. Tous droits réservés.
+            </p>
         </div>
     </div>
 </footer>

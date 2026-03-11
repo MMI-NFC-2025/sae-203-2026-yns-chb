@@ -25,65 +25,64 @@ const {
         />
     </div>
 
-    <div class="relative z-10 w-full max-w-7xl px-6">
-        <div class="grille -translate-y-8">
-            <div class="col-span-12 flex flex-col items-center gap-8">
-                <div
-                    class="border border-white/30 bg-white/10 backdrop-blur-md px-6 py-2 rounded-full flex items-center gap-3"
+    <div
+        class="relative z-10 w-full px-6 flex flex-col items-center text-center"
+    >
+        <div class="flex flex-col items-center gap-6 lg:gap-10 -translate-y-6">
+            <div
+                class="border border-white/30 bg-white/10 backdrop-blur-md px-5 py-2 rounded-full flex items-center gap-3"
+            >
+                <StarsIcon class="w-4 h-4 lg:w-5 lg:h-5 text-moutarde" />
+                <span
+                    class="font-playfair text-white text-base lg:text-xl italic"
+                    >{edition}</span
                 >
-                    <StarsIcon class="w-5 h-5 text-moutarde" />
-                    <span
-                        class="font-playfair text-white text-lg lg:text-xl italic"
-                        >{edition}</span
-                    >
-                </div>
+            </div>
 
-                <div class="w-full flex justify-center">
-    <h1 class="font-abril text-white text-[12vw] lg:text-[10vw] xl:text-[9vw] leading-none tracking-tight drop-shadow-2xl">
-        Flying Tap Fest
-    </h1>
-</div>
-
+            <div class="flex flex-col gap-2">
+                <h1
+                    class="font-abril text-white text-6xl md:text-8xl lg:text-[10vw] leading-tight tracking-tight drop-shadow-2xl"
+                >
+                    Flying Tap Fest
+                </h1>
                 <p
                     class="font-playfair text-white text-xl lg:text-3xl italic opacity-90"
                 >
                     Un festival entre ciel et terre
                 </p>
-
-                <div class="flex flex-col gap-4">
-                    <div
-                        class="border border-white/20 bg-black/40 backdrop-blur-sm px-10 py-3 rounded-full flex items-center gap-5 min-w-[320px] justify-center"
-                    >
-                        <CalendarIcon class="w-6 h-6 text-moutarde" />
-                        <span
-                            class="font-playfair text-white text-xl lg:text-2xl"
-                            >{date}</span
-                        >
-                    </div>
-                    <div
-                        class="border border-white/20 bg-black/40 backdrop-blur-sm px-10 py-3 rounded-full flex items-center gap-5 min-w-[320px] justify-center"
-                    >
-                        <LocationIcon class="w-6 h-6 text-moutarde" />
-                        <span
-                            class="font-playfair text-white text-xl lg:text-2xl"
-                            >{lieu}</span
-                        >
-                    </div>
-                </div>
-
-                <a
-                    href="/Contact"
-                    class="bg-rouge hover:bg-moutarde text-white font-abril text-xl lg:text-2xl px-12 py-5 rounded-full transition-all"
-                >
-                    Réserver vos billets
-                </a>
             </div>
+
+            <div class="flex flex-col gap-4 w-full items-center">
+                <div
+                    class="border border-white/20 bg-black/40 backdrop-blur-sm px-8 py-3 rounded-full flex items-center gap-4 w-fit min-w-[280px] lg:min-w-[350px] justify-center"
+                >
+                    <CalendarIcon class="w-5 h-5 lg:w-6 lg:h-6 text-moutarde" />
+                    <span class="font-playfair text-white text-lg lg:text-2xl"
+                        >{date}</span
+                    >
+                </div>
+                <div
+                    class="border border-white/20 bg-black/40 backdrop-blur-sm px-8 py-3 rounded-full flex items-center gap-4 w-fit min-w-[280px] lg:min-w-[350px] justify-center"
+                >
+                    <LocationIcon class="w-5 h-5 lg:w-6 lg:h-6 text-moutarde" />
+                    <span class="font-playfair text-white text-lg lg:text-2xl"
+                        >{lieu}</span
+                    >
+                </div>
+            </div>
+
+            <a
+                href="/Contact"
+                class="bg-rouge hover:bg-moutarde text-white font-abril text-xl lg:text-2xl px-12 py-5 rounded-full transition-all shadow-lg active:scale-95 mt-4"
+            >
+                Reserver vos billets
+            </a>
         </div>
     </div>
 
     <div
-        class="absolute bottom-5 left-1/2 -translate-x-1/2 animate-bounce z-20"
+        class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce z-20 opacity-80"
     >
-        <ArrowDownIcon class="w-8 h-8 text-white" />
+        <ArrowDownIcon class="w-7 h-7 lg:w-8 lg:h-8 text-white" />
     </div>
 </section>

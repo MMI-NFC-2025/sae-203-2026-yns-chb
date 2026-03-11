@@ -14,37 +14,43 @@ const imageArtiste = Array.isArray(rawImage) ? rawImage[0] : rawImage;
 ---
 
 <div
-    class="bg-taupe rounded-[50px] overflow-hidden flex flex-col group hover:shadow-xl transition-all duration-500 h-full border border-black/5"
+    class="bg-[var(--color-taupe)] rounded-[30px] lg:rounded-[50px] overflow-hidden flex flex-row lg:flex-col group hover:shadow-xl transition-all duration-500 h-full border border-black/5"
 >
-    <div class="relative w-full flex items-center justify-center">
+    <div class="relative w-1/2 lg:w-full shrink-0 overflow-hidden">
         <PbImage
             record={artiste}
             recordImage={imageArtiste}
-            className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
+            className="w-full h-full object-cover block transition-transform duration-700 group-hover:scale-105 aspect-square lg:aspect-auto"
         />
     </div>
 
-    <div class="p-10 lg:p-12 flex flex-col gap-6">
-        <div class="flex flex-col gap-2">
+    <div
+        class="p-6 lg:p-12 flex flex-col justify-center gap-4 lg:gap-6 w-1/2 lg:w-full"
+    >
+        <div class="flex flex-col gap-1 lg:gap-2">
             <h3
-                class="font-abril text-moutarde text-4xl lg:text-5xl leading-tight "
+                class="font-abril text-[var(--color-moutarde)] text-2xl md:text-3xl lg:text-5xl leading-tight"
             >
                 {artiste.nom}
             </h3>
-            <p class="font-playfair text-rouge text-2xl font-bold ">
+            <p
+                class="font-playfair text-[var(--color-noir)] text-lg lg:text-2xl italic"
+            >
                 {artiste.genre_musicale}
             </p>
         </div>
 
         <div
-            class="flex flex-col gap-4 font-playfair /80 border-t border-black/10 pt-6"
+            class="flex flex-col gap-2 lg:gap-4 font-playfair border-t border-black/10 pt-4 lg:pt-6"
         >
-            <p class="text-2xl lg:text-3xl">
-                <span class="text-rouge font-bold ">Horaire :</span>
+            <p class="text-base lg:text-3xl">
+                <span class="text-[var(--color-rouge)] font-bold"
+                    >Horaire :</span
+                >
                 {artiste.horraire ?? artiste.horaire}
             </p>
-            <p class="text-2xl lg:text-3xl">
-                <span class="text-rouge font-bold ">Scène :</span>
+            <p class="text-base lg:text-3xl leading-tight">
+                <span class="text-[var(--color-rouge)] font-bold">Scène :</span>
                 {artiste.scene}
             </p>
         </div>

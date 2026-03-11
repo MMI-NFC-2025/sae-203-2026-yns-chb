@@ -1,4 +1,4 @@
----
+﻿---
 import Layout from "../../layouts/Layout.astro";
 import CardArtiste from "../../components/cards/CardArtiste.astro";
 import { pb } from "../../../backend/backend.mjs";
@@ -9,9 +9,9 @@ const artistes = await pb.collection("artistes").getFullList({
 });
 ---
 
-<Layout title="Artistes - Flying Tap Fest" description="Découvrez les artistes qui feront vibrer le Flying Tap Fest : des talents émergents aux légendes du tap dance, explorez leurs profils et préparez-vous à une expérience inoubliable." >
+<Layout title="Artistes - Flying Tap Fest" description="DÃ©couvrez les artistes qui feront vibrer le Flying Tap Fest : des talents Ã©mergents aux lÃ©gendes du tap dance, explorez leurs profils et prÃ©parez-vous Ã  une expÃ©rience inoubliable." >
     <main class="bg-beige min-h-screen py-24">
-        <div class="max-w-[1400px] mx-auto px-6">
+        <div class="max-w-350 mx-auto px-6">
             <h1
                 class="font-abril text-moutarde text-7xl md:text-8xl lg:text-[150px] mb-20 leading-none"
             >
@@ -34,7 +34,7 @@ const artistes = await pb.collection("artistes").getFullList({
                 artistes.length === 0 && (
                     <div class="py-20 text-center">
                         <p class="font-playfair text-3xl italic text-black/40">
-                            Aucun artiste trouvé dans la collection.
+                            Aucun artiste trouvÃ© dans la collection.
                         </p>
                     </div>
                 )
@@ -42,3 +42,4 @@ const artistes = await pb.collection("artistes").getFullList({
         </div>
     </main>
 </Layout>
+

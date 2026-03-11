@@ -1,13 +1,15 @@
----
+﻿---
 import Logo from "../assets/icons/logo.svg";
 ---
 
-<header class="bg-taupe flex items-center justify-between px-6 py-3 shadow-md">
-    <a href="/" class="transition-transform hover:scale-105 shrink-0">
-        <Logo class="w-44 h-auto" />
+<header
+    class="bg-taupe flex items-center justify-between px-6 py-3 shadow-md sticky top-0 z-50 h-20 lg:h-25"
+>
+    <a href="/" class="transition-transform hover:scale-105 shrink-0 z-50">
+        <Logo class="w-28 lg:w-44 h-auto text-taupe" />
     </a>
 
-    <nav>
+    <nav class="hidden lg:block">
         <ul class="flex items-center gap-12">
             <li>
                 <a
@@ -38,22 +40,124 @@ import Logo from "../assets/icons/logo.svg";
                 >
             </li>
 
-            <div class="h-14 w-[2px] bg-white/30 mx-2"></div>
+            <div class="h-14 w-0.5 bg-white/30 mx-2"></div>
 
             <li class="flex flex-col justify-center">
                 <a
                     href="/Info"
-                    class="font-playfair text-black text-base font-bold uppercase tracking-tight hover:text-white transition-colors leading-tight"
+                    class="font-playfair text-black text-sm lg:text-base font-bold uppercase tracking-tight hover:text-white transition-colors leading-tight"
+                    >Infos pratiques</a
                 >
-                    Infos pratiques
-                </a>
                 <a
                     href="/Contact"
-                    class="font-playfair text-black text-base font-bold uppercase tracking-tight hover:text-white transition-colors leading-tight"
+                    class="font-playfair text-black text-sm lg:text-base font-bold uppercase tracking-tight hover:text-white transition-colors leading-tight"
+                    >Contact</a
                 >
-                    Contact
-                </a>
             </li>
         </ul>
     </nav>
+
+    <button
+        id="burger-menu"
+        class="lg:hidden flex flex-col justify-center items-center gap-1.5 w-12 h-12 z-50 bg-transparent cursor-pointer border-none p-0"
+        aria-label="Menu"
+    >
+        <span
+            class="line-1 w-8 h-0.75 bg-beige rounded-full transition-all duration-300 ease-in-out"
+        ></span>
+        <span
+            class="line-2 w-8 h-0.75 bg-beige rounded-full transition-all duration-300 ease-in-out"
+        ></span>
+        <span
+            class="line-3 w-8 h-0.75 bg-beige rounded-full transition-all duration-300 ease-in-out"
+        ></span>
+    </button>
+
+    <div
+        id="menu-overlay"
+        class="fixed top-20 lg:top-25 left-0 right-0 bottom-0 bg-taupe z-40 translate-x-full transition-transform duration-300 ease-in-out lg:hidden"
+    >
+        <nav
+            class="flex flex-col px-10 pt-12 gap-10 h-full overflow-y-auto pb-10"
+        >
+            <div class="flex flex-col gap-6 text-center lg:text-left">
+                <a
+                    href="/A_propos"
+                    class="font-abril text-white hover:text-moutarde transition-colors text-4xl sm:text-5xl uppercase"
+                    >À propos</a
+                >
+                <a
+                    href="/Programme"
+                    class="font-abril text-white hover:text-moutarde transition-colors text-4xl sm:text-5xl uppercase"
+                    >Le programme</a
+                >
+                <a
+                    href="/Artistes"
+                    class="font-abril text-white hover:text-moutarde transition-colors text-4xl sm:text-5xl uppercase"
+                    >Artistes</a
+                >
+                <a
+                    href="/Scenes"
+                    class="font-abril text-white hover:text-moutarde transition-colors text-4xl sm:text-5xl uppercase"
+                    >Les scènes</a
+                >
+            </div>
+
+            <div class="h-px w-full bg-black/20 mt-2 mb-2"></div>
+
+            <div class="flex flex-col gap-6 text-center lg:text-left">
+                <a
+                    href="/Info"
+                    class="font-playfair text-black text-2xl sm:text-3xl font-bold uppercase tracking-tight hover:text-white transition-colors"
+                    >Infos pratiques</a
+                >
+                <a
+                    href="/Contact"
+                    class="font-playfair text-black text-2xl sm:text-3xl font-bold uppercase tracking-tight hover:text-white transition-colors"
+                    >Contact</a
+                >
+            </div>
+        </nav>
+    </div>
 </header>
+
+<style>
+    /* 🪄 ANIMATION DU MENU BURGER EN CROIX */
+    #burger-menu.open .line-1 {
+        transform: translateY(9px) rotate(45deg);
+    }
+    #burger-menu.open .line-2 {
+        opacity: 0;
+        transform: scale(0);
+    }
+    #burger-menu.open .line-3 {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+</style>
+
+<script>
+    const burger = document.getElementById("burger-menu");
+    const overlay = document.getElementById("menu-overlay");
+
+    burger?.addEventListener("click", () => {
+        const isOpen = burger.classList.toggle("open");
+
+        if (isOpen) {
+            overlay?.classList.remove("translate-x-full");
+            document.body.style.overflow = "hidden"; // Empêche de scroller sur la page derrière
+        } else {
+            overlay?.classList.add("translate-x-full");
+            document.body.style.overflow = "";
+        }
+    });
+
+    // Fermer le menu si on clique sur un lien (très important sur mobile)
+    overlay?.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+            burger?.classList.remove("open");
+            overlay?.classList.add("translate-x-full");
+            document.body.style.overflow = "";
+        });
+    });
+</script>
+

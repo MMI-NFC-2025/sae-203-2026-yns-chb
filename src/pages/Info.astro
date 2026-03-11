@@ -1,408 +1,445 @@
----
+﻿---
 import Layout from "../layouts/Layout.astro";
 
-const tarifs = [
-    {
-        nom: "Pass 1 jour",
-        prix: "25€",
-        details: [
-            "Accès à toutes les scènes",
-            "1 journée au choix",
-            "Places assises non numérotées",
-        ],
-    },
-];
+const pageTitle = "Infos Pratiques & Billetterie - Flying Tap Fest";
 ---
 
-<Layout title="Infos Pratiques & Billetterie">
-    <main class="bg-[#F2EDE4] min-h-screen pb-32">
-        <header class="max-w-[1850px] mx-auto px-4 lg:px-10 py-16 lg:py-24">
+<Layout title={pageTitle}>
+    <main class="bg-beige min-h-screen pb-32">
+        <header
+            class="max-w-462.5 mx-auto px-6 lg:px-10 pt-16 lg:pt-24 pb-12"
+        >
             <h1
-                class="font-abril text-moutarde text-7xl lg:text-[120px] leading-[0.9] mb-12"
+                class="font-abril text-moutarde text-6xl lg:text-[120px] leading-[0.9] mb-12"
             >
                 Infos Pratiques
             </h1>
 
-            <h2 class="font-abril text-rouge text-5xl lg:text-7xl mb-16">
+            <h2
+                class="font-abril text-rouge text-5xl lg:text-7xl mb-12 lg:mb-16"
+            >
                 Tarifs
             </h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+            <div
+                class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10 lg:max-w-7xl mx-auto"
+            >
                 <div
-                    class="bg-[#262626] rounded-[60px] p-12 lg:p-20 flex flex-col items-center text-center shadow-2xl"
+                    class="bg-[#1A1A1A] rounded-[30px] lg:rounded-[50px] p-10 lg:p-12 flex flex-col items-center text-center shadow-2xl"
                 >
                     <h3
-                        class="font-abril text-moutarde text-4xl lg:text-6xl mb-10"
+                        class="font-abril text-moutarde text-3xl lg:text-4xl mb-6"
                     >
                         Pass 1 jour
                     </h3>
                     <span
-                        class="font-abril text-beige text-7xl lg:text-9xl mb-12"
-                        >25€</span
+                        class="font-abril text-beige text-6xl lg:text-7xl mb-8"
+                        >25â‚¬</span
                     >
                     <div
-                        class="space-y-4 font-playfair text-beige/90 text-xl lg:text-3xl italic"
+                        class="space-y-3 font-playfair text-beige/90 text-xl lg:text-2xl italic"
                     >
-                        <p>Accès à toutes les scènes</p>
-                        <p>1 journée au choix</p>
-                        <p>Places assises non numérotées</p>
+                        <p>AccÃ¨s Ã  toutes les scÃ¨nes</p>
+                        <p>1 journÃ©e au choix</p>
+                        <p>Places assises non numÃ©rotÃ©es</p>
                     </div>
                 </div>
 
                 <div
-                    class="bg-gradient-to-b from-[#8B2611] to-[#9C6119] rounded-[60px] p-12 lg:p-20 flex flex-col items-center text-center shadow-2xl"
+                    class="bg-linear-to-b from-[#8B2611] to-[#9C6119] rounded-[30px] lg:rounded-[50px] p-10 lg:p-12 flex flex-col items-center text-center shadow-2xl"
                 >
-                    <h3 class="font-abril text-beige text-4xl lg:text-6xl mb-8">
-                        Pass 2 jours
+                    <h3 class="font-abril text-beige text-4xl lg:text-4xl mb-6">
+                        Pass 2 jour
                     </h3>
                     <span
-                        class="font-abril text-beige text-7xl lg:text-9xl mb-10"
-                        >45€</span
+                        class="font-abril text-beige text-7xl lg:text-7xl mb-8"
+                        >45â‚¬</span
                     >
                     <div
-                        class="space-y-2 mb-12 font-playfair text-beige text-xl lg:text-2xl"
+                        class="space-y-2 mb-8 font-playfair text-beige text-xl lg:text-xl"
                     >
-                        <p>Accès à toutes les scènes</p>
+                        <p>AccÃ¨s Ã  toutes les scÃ¨nes</p>
                         <p>Les 2 jours du festival</p>
-                        <p>Accès prioritaire</p>
+                        <p>AccÃ¨s prioritaire</p>
                         <p class="italic font-bold">
-                            goodies offert à la fin des 2 jours
+                            goodies offert Ã  la fin des 2 jours
                         </p>
                     </div>
                     <div
-                        class="bg-[#F2EDE4] text-[#8B2611] px-8 py-4 rounded-full font-abril text-xl uppercase shadow-md"
+                        class="bg-beige text-rouge px-6 py-3 rounded-full font-abril text-lg uppercase shadow-md"
                     >
                         Meilleure offre
                     </div>
                 </div>
 
                 <div
-                    class="bg-[#262626] rounded-[60px] p-12 lg:p-20 flex flex-col items-center text-center shadow-2xl"
+                    class="bg-beige border-[3px] border-rouge rounded-[30px] lg:rounded-[50px] p-10 lg:p-12 flex flex-col items-center text-center shadow-2xl"
                 >
                     <h3
-                        class="font-abril text-moutarde text-4xl lg:text-6xl mb-10"
+                        class="font-abril text-moutarde text-3xl lg:text-4xl mb-6"
                     >
-                        Pass 3 jours
+                        Pass VIP
                     </h3>
                     <span
-                        class="font-abril text-beige text-7xl lg:text-9xl mb-12"
-                        >60€</span
+                        class="font-abril text-rouge text-6xl lg:text-7xl mb-8"
+                        >99â‚¬</span
                     >
                     <div
-                        class="space-y-4 font-playfair text-beige/90 text-xl lg:text-3xl italic"
+                        class="space-y-2 font-playfair text-noir text-lg lg:text-xl font-bold leading-tight"
                     >
-                        <p>Accès à toutes les scènes</p>
-                        <p>Du 06 au 08 Juin 2026</p>
-                        <p>Expérience complète</p>
+                        <p>AccÃ¨s Ã  toutes les scÃ¨nes</p>
+                        <p>Les 2 jours du festival</p>
+                        <p>AccÃ¨s prioritaire</p>
+                        <p>goodies offert Ã  la fin des 2 jours</p>
+                        <p>AccÃ¨s backstage</p>
+                        <p>Meet & greet artistes</p>
+                        <p>Repas du soir offert</p>
                     </div>
                 </div>
             </div>
         </header>
 
-        <section class="max-w-[1850px] mx-auto px-4 lg:px-10">
-            <div class="bg-[#262626] p-10 lg:p-16 shadow-2xl">
-                <div class="mb-12">
+        <section class="max-w-462.5 mx-auto px-6 lg:px-10">
+            <div
+                class="bg-[#1A1A1A] p-8 lg:p-12 shadow-2xl rounded-sm text-left lg:max-w-7xl mx-auto"
+            >
+                <div class="mb-8">
                     <h3
-                        class="font-abril text-moutarde text-3xl lg:text-5xl mb-4"
+                        class="font-abril text-moutarde text-2xl lg:text-3xl mb-2"
                     >
-                        Tarif réduit (-30%) :
+                        Tarif rÃ©duit (-30%) :
                     </h3>
-                    <p class="font-playfair text-beige/70 text-xl lg:text-3xl">
-                        Étudiant(e)s, moins de 18 ans, demandeurs d'emploi
-                        (justificatif obligatoire)
+                    <p class="font-playfair text-beige/70 text-lg lg:text-xl">
+                        Ã‰tudiant(e)s, moins de 18 ans, demandeurs d'emploi (sur
+                        prÃ©sentation d'un justificatif)
                     </p>
                 </div>
                 <div>
                     <h3
-                        class="font-abril text-moutarde text-3xl lg:text-5xl mb-4"
+                        class="font-abril text-moutarde text-2xl lg:text-3xl mb-2"
                     >
                         Gratuit :
                     </h3>
-                    <p class="font-playfair text-beige/70 text-xl lg:text-3xl">
-                        Moins de 12 ans accompagné(e)s d'un adulte
+                    <p class="font-playfair text-beige/70 text-lg lg:text-xl">
+                        Moins de 12 ans accompagnÃ©(e)s d'un adulte
                     </p>
                 </div>
             </div>
         </section>
 
-        <section class="max-w-[1850px] mx-auto px-4 lg:px-10 mt-32">
-            <h2 class="font-abril text-rouge text-6xl lg:text-8xl mb-12">
-                Hébergements
+        <section class="max-w-462.5 mx-auto px-6 lg:px-10 mt-24 lg:mt-32">
+            <h2
+                class="font-abril text-rouge text-5xl lg:text-8xl mb-8 lg:mb-12 lg:max-w-7xl mx-auto"
+            >
+                HÃ©bergements
             </h2>
-
             <div
-                class="bg-[#D9D4C7]/60 rounded-[60px] p-12 lg:p-20 shadow-sm border border-black/5"
+                class="lg:bg-[#D9D4C7]/60 lg:rounded-[60px] lg:p-16 lg:shadow-sm lg:border lg:border-black/5 lg:max-w-7xl mx-auto"
             >
                 <p
-                    class="font-playfair text-noir text-2xl lg:text-4xl mb-16 leading-relaxed border-b border-black/10 pb-10"
+                    class="font-playfair text-noir text-xl lg:text-3xl mb-8 lg:mb-12 leading-relaxed lg:border-b lg:border-black/10 lg:pb-8"
                 >
-                    Le festival se déroule au Parc du Près-la-Rose à
-                    Montbéliard, un lieu facilement accessible et entouré de
-                    nombreuses options d’hébergement :
+                    Le festival se dÃ©roule au Parc du PrÃ¨s-la-Rose Ã 
+                    MontbÃ©liard, un lieu facilement accessible et entourÃ© de
+                    nombreuses options dâ€™hÃ©bergement :
                 </p>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
-                    <div>
+                <div
+                    class="flex flex-col gap-6 lg:grid lg:grid-cols-3 lg:gap-12"
+                >
+                    <div
+                        class="bg-[#D9D4C7]/80 rounded-[30px] p-8 lg:bg-transparent lg:p-0 lg:rounded-none"
+                    >
                         <h3
-                            class="font-abril text-moutarde text-3xl lg:text-5xl mb-6"
+                            class="font-abril text-moutarde text-2xl lg:text-4xl mb-4"
                         >
-                            Hôtel
+                            HÃ´tel
                         </h3>
                         <p
-                            class="font-playfair text-noir text-xl lg:text-3xl leading-relaxed"
+                            class="font-playfair text-noir text-lg lg:text-2xl leading-relaxed"
                         >
-                            Plusieurs établissements situés à quelques minutes
+                            Plusieurs Ã©tablissements situÃ©s Ã  quelques minutes
                             du site du festival.
                         </p>
                     </div>
-
-                    <div>
+                    <div
+                        class="bg-[#D9D4C7]/80 rounded-[30px] p-8 lg:bg-transparent lg:p-0 lg:rounded-none"
+                    >
                         <h3
-                            class="font-abril text-moutarde text-3xl lg:text-5xl mb-6"
+                            class="font-abril text-moutarde text-2xl lg:text-4xl mb-4"
                         >
-                            Locations & gîtes
+                            Locations & gÃ®tes :
                         </h3>
                         <p
-                            class="font-playfair text-noir text-xl lg:text-3xl leading-relaxed"
+                            class="font-playfair text-noir text-lg lg:text-2xl leading-relaxed"
                         >
-                            De nombreuses options disponibles dans Montbéliard
-                            et les environs.
+                            disponibles dans MontbÃ©liard et les environs.
                         </p>
                     </div>
-
-                    <div>
+                    <div
+                        class="bg-[#D9D4C7]/80 rounded-[30px] p-8 lg:bg-transparent lg:p-0 lg:rounded-none"
+                    >
                         <h3
-                            class="font-abril text-moutarde text-3xl lg:text-5xl mb-6"
+                            class="font-abril text-moutarde text-2xl lg:text-4xl mb-4"
                         >
                             Aires pour vans
                         </h3>
                         <p
-                            class="font-playfair text-noir text-xl lg:text-3xl leading-relaxed"
+                            class="font-playfair text-noir text-lg lg:text-2xl leading-relaxed"
                         >
-                            Parkings autorisés pour les véhicules aménagés,
-                            selon disponibilité municipale.
+                            parkings autorisÃ©s pour les vÃ©hicules amÃ©nagÃ©s,
+                            selon disponibilitÃ© municipale
                         </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="max-w-[1850px] mx-auto px-4 lg:px-10 mt-32">
-            <h2 class="font-abril text-rouge text-6xl lg:text-8xl mb-16">
-                Accès & Transport
+        <section class="max-w-462.5 mx-auto px-6 lg:px-10 mt-24 lg:mt-32">
+            <h2
+                class="font-abril text-rouge text-5xl lg:text-8xl mb-8 lg:mb-12 lg:max-w-7xl mx-auto"
+            >
+                AccÃ¨s & Transport
             </h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 mb-10">
+            <div class="flex flex-col gap-6 lg:gap-12 lg:max-w-7xl mx-auto">
                 <div
-                    class="bg-[#D9D4C7]/60 rounded-[60px] p-10 lg:p-14 shadow-sm border border-black/5"
+                    class="flex flex-col gap-6 lg:grid lg:grid-cols-2 lg:gap-12 lg:bg-[#D9D4C7]/60 lg:rounded-[50px] lg:p-12 lg:shadow-sm lg:border lg:border-black/5"
                 >
-                    <h3
-                        class="font-abril text-moutarde text-3xl lg:text-4xl mb-6"
-                    >
-                        En train
-                    </h3>
-                    <p
-                        class="font-playfair text-noir text-xl lg:text-3xl leading-relaxed"
-                    >
-                        Montbéliard est desservie par la ligne SNCF
-                        Belfort-Montbéliard TGV. Le parc est ensuite accessible
-                        en bus ou à pied selon les lignes locales.
-                    </p>
-                </div>
-
-                <div
-                    class="bg-[#D9D4C7]/60 rounded-[60px] p-10 lg:p-14 shadow-sm border border-black/5"
-                >
-                    <h3
-                        class="font-abril text-moutarde text-3xl lg:text-4xl mb-6"
-                    >
-                        En voiture
-                    </h3>
                     <div
-                        class="font-playfair text-noir text-xl lg:text-3xl space-y-6"
+                        class="bg-[#D9D4C7]/80 rounded-[30px] p-8 lg:bg-transparent lg:p-0 lg:rounded-none"
                     >
-                        <p>Accès rapide depuis :</p>
-                        <ul class="list-disc list-inside space-y-2 ml-4">
-                            <li>l’A36, sortie Montbéliard–Centre,</li>
-                            <li>Belfort (20 min),</li>
-                            <li>Besançon (1 h).</li>
-                        </ul>
+                        <h3
+                            class="font-abril text-moutarde text-2xl lg:text-4xl mb-4"
+                        >
+                            En train
+                        </h3>
+                        <p
+                            class="font-playfair text-noir text-lg lg:text-2xl leading-relaxed"
+                        >
+                            MontbÃ©liard est desservie par la ligne SNCF
+                            Belfort-MontbÃ©liard TGV. Le parc est ensuite
+                            accessible en bus ou Ã  pied selon les lignes
+                            locales.
+                        </p>
+                    </div>
+                    <div
+                        class="bg-[#D9D4C7]/80 rounded-[30px] p-8 lg:bg-transparent lg:p-0 lg:rounded-none"
+                    >
+                        <h3
+                            class="font-abril text-moutarde text-2xl lg:text-4xl mb-4"
+                        >
+                            En voiture
+                        </h3>
+                        <div
+                            class="font-playfair text-noir text-lg lg:text-2xl space-y-4"
+                        >
+                            <p>AccÃ¨s rapide depuis :</p>
+                            <ul class="list-disc list-inside space-y-1 ml-4">
+                                <li>lâ€™A36, sortie MontbÃ©liardâ€“Centre,</li>
+                                <li>Belfort (20 min),</li>
+                                <li>BesanÃ§on (1 h).</li>
+                            </ul>
+                            <p class="italic pt-2">
+                                Des parkings sont disponibles autour du parc, en
+                                partenariat avec la municipalitÃ©.
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-                <div
-                    class="bg-[#D9D4C7]/60 rounded-[60px] p-10 lg:p-14 shadow-sm border border-black/5"
-                >
-                    <h3
-                        class="font-abril text-moutarde text-3xl lg:text-4xl mb-6"
-                    >
-                        Covoiturage
-                    </h3>
-                    <p
-                        class="font-playfair text-noir text-xl lg:text-3xl leading-relaxed"
-                    >
-                        Nous encourageons les visiteurs à opter pour le
-                        covoiturage, dans la continuité des engagements
-                        éco-responsables du festival. Des espaces de
-                        dépose-minute sont prévus près de l’entrée.
-                    </p>
-                </div>
 
                 <div
-                    class="bg-[#D9D4C7]/60 rounded-[60px] p-10 lg:p-14 shadow-sm border border-black/5"
+                    class="flex flex-col gap-6 lg:grid lg:grid-cols-2 lg:gap-12 lg:bg-[#D9D4C7]/60 lg:rounded-[50px] lg:p-12 lg:shadow-sm lg:border lg:border-black/5"
                 >
-                    <h3
-                        class="font-abril text-moutarde text-3xl lg:text-4xl mb-6"
+                    <div
+                        class="bg-[#D9D4C7]/80 rounded-[30px] p-8 lg:bg-transparent lg:p-0 lg:rounded-none"
                     >
-                        Sur place
-                    </h3>
-                    <p
-                        class="font-playfair text-noir text-xl lg:text-3xl leading-relaxed"
+                        <h3
+                            class="font-abril text-moutarde text-2xl lg:text-4xl mb-4"
+                        >
+                            Covoiturage
+                        </h3>
+                        <p
+                            class="font-playfair text-noir text-lg lg:text-2xl leading-relaxed"
+                        >
+                            Nous encourageons les visiteurs Ã  opter pour le
+                            covoiturage, dans la continuitÃ© des engagements
+                            Ã©co-responsables du festival. Des espaces de
+                            dÃ©pose-minute sont prÃ©vus prÃ¨s de lâ€™entrÃ©e.
+                        </p>
+                    </div>
+                    <div
+                        class="bg-[#D9D4C7]/80 rounded-[30px] p-8 lg:bg-transparent lg:p-0 lg:rounded-none"
                     >
-                        Le Parc du Près-la-Rose est un site piéton agréable,
-                        idéal pour circuler facilement entre les scènes et les
-                        espaces d’ateliers.
-                    </p>
+                        <h3
+                            class="font-abril text-moutarde text-2xl lg:text-4xl mb-4"
+                        >
+                            Sur place
+                        </h3>
+                        <p
+                            class="font-playfair text-noir text-lg lg:text-2xl leading-relaxed"
+                        >
+                            Le Parc du PrÃ¨s-la-Rose est un site piÃ©ton agrÃ©able,
+                            idÃ©al pour circuler facilement entre les scÃ¨nes et
+                            les espaces dâ€™ateliers.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="max-w-[1850px] mx-auto px-4 lg:px-10 mt-32 pb-32">
+        <section class="max-w-462.5 mx-auto px-6 lg:px-10 mt-32 pb-32">
             <h2
-                class="font-abril text-rouge text-6xl lg:text-8xl mb-16 uppercase"
+                class="font-abril text-rouge text-6xl lg:text-8xl mb-12 uppercase lg:max-w-7xl mx-auto"
             >
                 FAQ
             </h2>
-
-            <div class="space-y-6">
+            <div class="space-y-4 lg:space-y-6 lg:max-w-7xl mx-auto">
                 <details
-                    class="group bg-[#262626] border-[4px] border-[#8B2611] p-8 lg:p-10 cursor-pointer transition-all"
+                    class="group bg-[#1A1A1A] border-4 border-rouge p-6 lg:p-8 cursor-pointer rounded-none"
                 >
                     <summary
-                        class="flex justify-between items-center list-none font-playfair text-beige text-2xl lg:text-4xl"
+                        class="flex justify-between items-center list-none font-playfair text-beige text-lg lg:text-2xl"
                     >
-                        <span>Peut-on acheter les billets sur place ?</span>
+                        <span class="max-w-[85%]"
+                            >Peut-on acheter les billets sur place ?</span
+                        >
                         <span
-                            class="text-[#8B2611] transition-transform group-open:rotate-180"
-                            >▼</span
+                            class="text-rouge transition-transform group-open:rotate-180"
+                            >âˆ¨</span
                         >
                     </summary>
                     <p
-                        class="mt-6 font-playfair text-beige/80 text-xl lg:text-2xl leading-relaxed italic"
+                        class="mt-4 font-playfair text-beige/80 text-base lg:text-xl italic leading-relaxed pt-4 border-t border-white/10"
                     >
-                        Oui, une billetterie sera disponible à l'entrée du Parc
-                        du Près-la-Rose, dans la limite des places disponibles.
+                        Oui, une billetterie sera disponible Ã  l'entrÃ©e du Parc
+                        du PrÃ¨s-la-Rose, dans la limite des places disponibles.
                     </p>
                 </details>
 
                 <details
-                    class="group bg-[#262626] border-[4px] border-[#8B2611] p-8 lg:p-10 cursor-pointer"
+                    class="group bg-[#1A1A1A] border-4 border-rouge p-6 lg:p-8 cursor-pointer rounded-none"
                 >
                     <summary
-                        class="flex justify-between items-center list-none font-playfair text-beige text-2xl lg:text-4xl"
+                        class="flex justify-between items-center list-none font-playfair text-beige text-lg lg:text-2xl"
                     >
-                        <span
-                            >Les ateliers nécessitent-ils une inscription ?</span
+                        <span class="max-w-[85%]"
+                            >Les ateliers nÃ©cessitent-ils une inscription ?</span
                         >
                         <span
-                            class="text-[#8B2611] transition-transform group-open:rotate-180"
-                            >▼</span
+                            class="text-rouge transition-transform group-open:rotate-180"
+                            >âˆ¨</span
                         >
                     </summary>
                     <p
-                        class="mt-6 font-playfair text-beige/80 text-xl lg:text-2xl leading-relaxed italic"
+                        class="mt-4 font-playfair text-beige/80 text-base lg:text-xl italic leading-relaxed pt-4 border-t border-white/10"
                     >
-                        Il est conseillé de s'inscrire via le site pour garantir
-                        votre place, mais des inscriptions de dernière minute
+                        Il est conseillÃ© de s'inscrire via le site pour garantir
+                        votre place, mais des inscriptions de derniÃ¨re minute
                         seront possibles sur place.
                     </p>
                 </details>
 
                 <details
-                    class="group bg-[#262626] border-[4px] border-[#8B2611] p-8 lg:p-10 cursor-pointer"
+                    class="group bg-[#1A1A1A] border-4 border-rouge p-6 lg:p-8 cursor-pointer rounded-none"
                 >
                     <summary
-                        class="flex justify-between items-center list-none font-playfair text-beige text-2xl lg:text-4xl"
+                        class="flex justify-between items-center list-none font-playfair text-beige text-lg lg:text-2xl"
                     >
-                        <span>Le festival est-il adapté aux familles ?</span>
+                        <span class="max-w-[85%]"
+                            >Le festival est-il adaptÃ© aux familles ?</span
+                        >
                         <span
-                            class="text-[#8B2611] transition-transform group-open:rotate-180"
-                            >▼</span
+                            class="text-rouge transition-transform group-open:rotate-180"
+                            >âˆ¨</span
                         >
                     </summary>
                     <p
-                        class="mt-6 font-playfair text-beige/80 text-xl lg:text-2xl leading-relaxed italic"
+                        class="mt-4 font-playfair text-beige/80 text-base lg:text-xl italic leading-relaxed pt-4 border-t border-white/10"
                     >
-                        Oui ! Le festival propose des activités pour tous les
-                        âges et des zones de repos ombragées.
+                        Oui ! Le festival propose des activitÃ©s pour tous les
+                        Ã¢ges et des zones de repos ombragÃ©es.
                     </p>
                 </details>
 
                 <details
-                    class="group bg-[#262626] border-[4px] border-[#9C6119] p-8 lg:p-10 cursor-pointer mt-12"
+                    class="group bg-[#1A1A1A] border-4 border-moutarde p-6 lg:p-8 cursor-pointer rounded-none"
                 >
                     <summary
-                        class="flex justify-between items-center list-none font-playfair text-beige text-2xl lg:text-4xl"
+                        class="flex justify-between items-center list-none font-playfair text-beige text-lg lg:text-2xl"
                     >
-                        <span
-                            >Peut-on venir avec son propre matériel (chaussures
+                        <span class="max-w-[85%]"
+                            >Peut-on venir avec son propre matÃ©riel (chaussures
                             de claquettes) ?</span
                         >
                         <span
-                            class="text-[#9C6119] transition-transform group-open:rotate-180"
-                            >▼</span
+                            class="text-moutarde transition-transform group-open:rotate-180"
+                            >âˆ¨</span
                         >
                     </summary>
                     <p
-                        class="mt-6 font-playfair text-beige/80 text-xl lg:text-2xl leading-relaxed italic"
+                        class="mt-4 font-playfair text-beige/80 text-base lg:text-xl italic leading-relaxed pt-4 border-t border-white/10"
                     >
-                        Absolument ! Les danseurs sont encouragés à ramener
+                        Absolument ! Les danseurs sont encouragÃ©s Ã  ramener
                         leurs propres chaussures de claquettes.
                     </p>
                 </details>
 
                 <details
-                    class="group bg-[#262626] border-[4px] border-[#9C6119] p-8 lg:p-10 cursor-pointer"
+                    class="group bg-[#1A1A1A] border-4 border-moutarde p-6 lg:p-8 cursor-pointer rounded-none"
                 >
                     <summary
-                        class="flex justify-between items-center list-none font-playfair text-beige text-2xl lg:text-4xl"
+                        class="flex justify-between items-center list-none font-playfair text-beige text-lg lg:text-2xl"
                     >
-                        <span>Les drones sont-ils sécurisés ?</span>
+                        <span class="max-w-[85%]"
+                            >Les drones sont-ils sÃ©curisÃ©s ?</span
+                        >
                         <span
-                            class="text-[#9C6119] transition-transform group-open:rotate-180"
-                            >▼</span
+                            class="text-moutarde transition-transform group-open:rotate-180"
+                            >âˆ¨</span
                         >
                     </summary>
                     <p
-                        class="mt-6 font-playfair text-beige/80 text-xl lg:text-2xl leading-relaxed italic"
+                        class="mt-4 font-playfair text-beige/80 text-base lg:text-xl italic leading-relaxed pt-4 border-t border-white/10"
                     >
-                        Le survol du festival par des drones est interdit pour
-                        garantir la sécurité et la tranquillité de tous.
+                        Le survol du festival par des drones est strictement
+                        interdit pour garantir la sÃ©curitÃ© et la tranquillitÃ© de
+                        tous.
                     </p>
                 </details>
 
                 <details
-                    class="group bg-[#262626] border-[4px] border-[#9C6119] p-8 lg:p-10 cursor-pointer"
+                    class="group bg-[#1A1A1A] border-4 border-moutarde p-6 lg:p-8 cursor-pointer rounded-none"
                 >
                     <summary
-                        class="flex justify-between items-center list-none font-playfair text-beige text-2xl lg:text-4xl"
+                        class="flex justify-between items-center list-none font-playfair text-beige text-lg lg:text-2xl"
                     >
-                        <span>Y a-t-il des solutions pour les PMR ?</span>
+                        <span class="max-w-[85%]"
+                            >Y a-t-il des solutions pour les personnes Ã 
+                            mobilitÃ© rÃ©duite ?</span
+                        >
                         <span
-                            class="text-[#9C6119] transition-transform group-open:rotate-180"
-                            >▼</span
+                            class="text-moutarde transition-transform group-open:rotate-180"
+                            >âˆ¨</span
                         >
                     </summary>
                     <p
-                        class="mt-6 font-playfair text-beige/80 text-xl lg:text-2xl leading-relaxed italic"
+                        class="mt-4 font-playfair text-beige/80 text-base lg:text-xl italic leading-relaxed pt-4 border-t border-white/10"
                     >
-                        Le Parc du Près-la-Rose est accessible aux PMR. Des
-                        zones dédiées près des scènes sont prévues.
+                        Le Parc du PrÃ¨s-la-Rose est accessible aux PMR. Des
+                        zones dÃ©diÃ©es prÃ¨s des scÃ¨nes sont prÃ©vues.
                     </p>
                 </details>
             </div>
         </section>
     </main>
 </Layout>
+
+<style>
+    summary::-webkit-details-marker {
+        display: none;
+    }
+    summary {
+        list-style: none;
+    }
+</style>
+

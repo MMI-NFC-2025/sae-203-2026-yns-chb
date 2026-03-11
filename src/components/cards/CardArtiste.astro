@@ -2,63 +2,61 @@
 import PbImage from "../PbImage.astro";
 
 interface Props {
-    artiste: any; // L'objet complet venant de PocketBase
+    artiste: any;
 }
 
 const { artiste } = Astro.props;
 
-// PocketBase file fields can be either a string or an array; keep one filename.
-const rawImage = artiste.Image ?? artiste.photo;
+const rawImage = artiste.Image ?? artiste.photo ?? artiste.galerie;
 const imageArtiste = Array.isArray(rawImage) ? rawImage[0] : rawImage;
 ---
 
-
 <div
-    class="bg-noir rounded-[50px] overflow-hidden flex flex-col group hover:shadow-2xl transition-all duration-500 h-full"
+    class="bg-[var(--color-noir)] rounded-[40px] lg:rounded-[50px] overflow-hidden flex flex-col group hover:shadow-2xl transition-all duration-500 h-full shadow-xl"
 >
-    <div class="relative w-full bg-white/5 flex items-center justify-center">
+    <div
+       
+    >
         <PbImage
             record={artiste}
             recordImage={imageArtiste}
-            *
-            On
-            enlève
-            fit="contain"
-            pour
-            laisser
-            la
-            taille
-            naturelle
-            *
             className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
         />
     </div>
 
-    <div class="p-10 lg:p-12 flex flex-col gap-6">
+    <div class="p-8 lg:p-12 flex flex-col gap-6 lg:gap-8">
         <div class="flex flex-col gap-2">
             <h3
-                class="font-abril text-moutarde text-4xl lg:text-5xl leading-tight uppercase"
+                class="font-abril text-[var(--color-moutarde)] text-3xl lg:text-5xl leading-tight"
             >
                 {artiste.nom}
             </h3>
-            <p class="font-playfair text-rouge text-2xl font-bold italic">
+            <p
+                class="font-playfair text-[var(--color-rouge)] text-xl lg:text-2xl"
+            >
                 {artiste.genre_musicale}
             </p>
         </div>
 
         <div
-            class="flex flex-col gap-4 font-playfair text-beige/90 border-t border-white/10 pt-6"
+            class="flex flex-col gap-3 lg:gap-4 font-playfair text-[var(--color-beige)]/90 lg:border-t lg:border-white/10 lg:pt-6"
         >
-            <p class="text-2xl lg:text-3xl">
-                <span class="text-moutarde font-bold">Horaire :</span>
+            <p class="text-xl lg:text-3xl">
+                <span class="text-[var(--color-moutarde)] font-bold"
+                    >Horaire :</span
+                >
                 {artiste.horraire ?? artiste.horaire}
             </p>
-            <p class="text-2xl lg:text-3xl">
-                <span class="text-moutarde font-bold">Date :</span>
+            <p class="text-xl lg:text-3xl">
+                <span class="text-[var(--color-moutarde)] font-bold"
+                    >Date :</span
+                >
                 {artiste.date}
             </p>
-            <p class="text-2xl lg:text-3xl">
-                <span class="text-moutarde font-bold">Scène :</span>
+            <p class="text-xl lg:text-3xl">
+                <span class="text-[var(--color-moutarde)] font-bold"
+                    >Scène :</span
+                >
                 {artiste.scene}
             </p>
         </div>

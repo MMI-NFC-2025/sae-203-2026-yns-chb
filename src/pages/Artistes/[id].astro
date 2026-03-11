@@ -1,28 +1,24 @@
----
+﻿---
 import { ArtisteId } from "../../../backend/backend.mjs";
 import Layout from "../../layouts/Layout.astro";
 import PbImage from "../../components/PbImage.astro";
 
-
+// Import des icônes SVG
 import calendarIcon from "../../assets/icons/Calendar.svg?raw";
 import locationIcon from "../../assets/icons/Location.svg?raw";
 import timeIcon from "../../assets/icons/Time.svg?raw";
 
-
 const { id } = Astro.params;
 const artiste = await ArtisteId(id);
-
 
 if (!artiste) {
     return Astro.redirect("/Artistes");
 }
 
-
 const rawImage = artiste.Image ?? artiste.photo;
 const imageArtiste = Array.isArray(rawImage)
     ? rawImage[0]
     : rawImage || (Array.isArray(artiste.galerie) ? artiste.galerie[0] : "");
-
 
 const galerieImages = Array.isArray(artiste.galerie)
     ? artiste.galerie
@@ -37,29 +33,31 @@ const pageTitle = `${artiste.nom} - Flying Tap Fest`;
 
 <Layout title={pageTitle}>
     <main class="bg-beige min-h-screen">
-        <header
-            class="bg-beige px-6 py-10 lg:px-12 lg:py-16 border-b border-black/5"
-        >
+        <header class="bg-beige px-6 pt-10 pb-12 lg:px-12 lg:py-16">
             <div class="max-w-7xl mx-auto">
                 <a
                     href="/Artistes"
-                    class="flex items-center gap-2 text-rouge font-playfair text-2xl mb-10 hover:underline"
+                    class="flex items-center gap-2 text-rouge font-playfair text-xl lg:text-2xl mb-10 hover:underline"
                 >
-                    <span class="text-2xl">←</span> Retour à la liste des artistes
+                    <span class="text-xl">←</span> Retour à la liste des artistes
                 </a>
+
                 <h1
-                    class="font-abril text-moutarde text-7xl lg:text-9xl leading-[0.8] mb-2"
+                    class="font-abril text-moutarde)] text-6xl md:text-8xl lg:text-9xl leading-[0.85] tracking-tighter mb-4 text-left"
                 >
                     {artiste.nom}
                 </h1>
-                <p class="font-abril text-rouge text-4xl lg:text-6xl ">
+
+                <p
+                    class="font-abril text-rouge)] text-4xl lg:text-6xl leading-none text-left"
+                >
                     {artiste.genre_musicale}
                 </p>
             </div>
         </header>
 
         <section class="bg-noir w-full flex justify-center">
-            <div class="w-full max-w-[1400px]">
+            <div class="w-full max-w-350">
                 <PbImage
                     record={artiste}
                     recordImage={imageArtiste}
@@ -68,82 +66,108 @@ const pageTitle = `${artiste.nom} - Flying Tap Fest`;
             </div>
         </section>
 
-        <div class="max-w-4xl mx-auto px-6 py-16 space-y-20">
+        <div class="max-w-4xl mx-auto px-6 py-12 lg:py-16">
             <div
-                class="bg-[#1a1a1a] rounded-[60px] p-8 lg:p-12 shadow-xl flex flex-col md:flex-row justify-between items-center gap-8 border border-white/5"
+                class="flex flex-col gap-6
+                        lg:flex-row lg:bg-[#1A1A1A] lg:rounded-[60px] lg:p-12 lg:justify-between lg:items-center lg:gap-8 lg:border lg:border-white/5 lg:shadow-2xl"
             >
                 <div
-                    class="flex flex-col items-center md:items-start gap-2 text-center md:text-left"
+                    class="bg-[#1A1A1A] rounded-[30px] p-6 border border-white/5 shadow-xl flex flex-col gap-4
+                            lg:bg-transparent lg:border-none lg:shadow-none lg:p-0 lg:items-start lg:gap-2 lg:w-auto"
                 >
-                    <div class="flex items-center gap-3">
-                        <span class="w-8 h-8 flex-shrink-0 [&>svg]:w-full [&>svg]:h-full" style="color: var(--color-moutarde)" set:html={locationIcon} />
+                    <div
+                        class="flex items-center gap-3 text-moutarde"
+                    >
+                        <div class="w-6 h-6" set:html={locationIcon} />
                         <h2
-                            class="font-abril text-moutarde text-xl uppercase tracking-wider"
+                            class="font-abril text-lg lg:text-xl uppercase tracking-widest"
                         >
                             Scène
                         </h2>
                     </div>
-                    <p class="font-playfair text-beige text-xl lg:text-2xl">
+                    <p
+                        class="font-playfair text-beige text-xl lg:text-2xl  lg:not-italic text-left"
+                    >
                         {artiste.scene}
                     </p>
                 </div>
-                <div class="hidden md:block w-px h-16 bg-white/10"></div>
+
+                <div class="hidden lg:block w-px h-16 bg-white/10"></div>
+
                 <div
-                    class="flex flex-col items-center md:items-start gap-2 text-center md:text-left"
+                    class="bg-[#1A1A1A] rounded-[30px] p-6 border border-white/5 shadow-xl flex flex-col gap-4
+                            lg:bg-transparent lg:border-none lg:shadow-none lg:p-0 lg:items-start lg:gap-2 lg:w-auto"
                 >
-                    <div class="flex items-center gap-3">
-                        <span class="w-8 h-8 flex-shrink-0 [&>svg]:w-full [&>svg]:h-full" style="color: var(--color-moutarde)" set:html={calendarIcon} />
+                    <div
+                        class="flex items-center gap-3 text-moutarde"
+                    >
+                        <div class="w-6 h-6" set:html={calendarIcon} />
                         <h2
-                            class="font-abril text-moutarde text-xl uppercase tracking-wider"
+                            class="font-abril text-lg lg:text-xl uppercase tracking-widest"
                         >
                             Date
                         </h2>
                     </div>
-                    <p class="font-playfair text-beige text-xl lg:text-2xl">
+                    <p
+                        class="font-playfair text-beige text-xl lg:text-2xl italic lg:not-italic text-left"
+                    >
                         {artiste.date}
                     </p>
                 </div>
-                <div class="hidden md:block w-px h-16 bg-white/10"></div>
+
+                <div class="hidden lg:block w-px h-16 bg-white/10"></div>
+
                 <div
-                    class="flex flex-col items-center md:items-start gap-2 text-center md:text-left"
+                    class="bg-[#1A1A1A] rounded-[30px] p-6 border border-white/5 shadow-xl flex flex-col gap-4
+                            lg:bg-transparent lg:border-none lg:shadow-none lg:p-0 lg:items-start lg:gap-2 lg:w-auto"
                 >
-                    <div class="flex items-center gap-3">
-                        <span class="w-8 h-8 flex-shrink-0 [&>svg]:w-full [&>svg]:h-full" style="color: var(--color-moutarde)" set:html={timeIcon} />
+                    <div
+                        class="flex items-center gap-3 text-moutarde"
+                    >
+                        <div class="w-6 h-6" set:html={timeIcon} />
                         <h2
-                            class="font-abril text-moutarde text-xl uppercase tracking-wider"
+                            class="font-abril text-lg lg:text-xl uppercase tracking-widest"
                         >
                             Horaire
                         </h2>
                     </div>
-                    <p class="font-playfair text-beige text-xl lg:text-2xl">
+                    <p
+                        class="font-playfair text-beige text-xl lg:text-2xl italic lg:not-italic text-left"
+                    >
                         {artiste.horraire ?? artiste.horaire}
                     </p>
                 </div>
             </div>
-
-
-
         </div>
-        <section class="max-w-[1850px] mx-auto px-4 lg:px-10 pt-16 pb-10 border-t border-black/5">
-            <h2 class="font-abril text-rouge text-6xl lg:text-8xl italic uppercase leading-none mb-12">
+
+        <section
+            class="max-w-462.5 mx-auto px-6 lg:px-10 pt-16 pb-12 border-t border-black/5"
+        >
+            <h2
+                class="font-abril text-rouge text-5xl lg:text-8xl leading-none mb-10 text-left"
+            >
                 À propos
             </h2>
-            
-            <div class="border-2 border-moutarde p-6 lg:p-8 bg-beige/30 w-full">
-                <p class="font-playfair text-noir text-xl lg:text-3xl leading-tight">
+
+            <div
+                class="border-2 border-moutarde p-6 bg-beige/30 w-full rounded-sm text-left
+                        lg:p-10 lg:bg-transparent lg:border-2 lg:rounded-none"
+            >
+                <p
+                    class="font-playfair text-noir text-xl lg:text-3xl leading-relaxed lg:leading-tight"
+                >
                     {artiste.description}
                 </p>
             </div>
         </section>
-        
-  
-{
+
+        {
             galerieImages.length > 1 && (
-                <section class="max-w-[1850px] mx-auto px-4 lg:px-10 pt-10 pb-24 border-t border-black/5">
-                    <h2 class="font-abril text-rouge text-6xl lg:text-8xl mb-16  text-center md:text-left">
+                <section class="max-w-462.5 mx-auto px-4 lg:px-10 pt-10 pb-24 border-t border-black/5">
+                    <h2 class="font-abril text-rouge text-6xl lg:text-8xl mb-16 text-left">
                         Galerie Photos
                     </h2>
-                    
+
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 items-end">
                         {galerieImages.slice(1, 4).map((img: string) => (
                             <div class="flex flex-col gap-4">
@@ -151,7 +175,6 @@ const pageTitle = `${artiste.nom} - Flying Tap Fest`;
                                     <PbImage
                                         record={artiste}
                                         recordImage={img}
-                                        
                                         className="w-full h-auto block rounded-[40px] shadow-xl transition-transform duration-700 hover:scale-105"
                                     />
                                 </div>

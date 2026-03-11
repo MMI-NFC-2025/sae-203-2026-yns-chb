@@ -13,17 +13,17 @@ const genre = Astro.url.searchParams.get("genre") || "";
 const scene = Astro.url.searchParams.get("scene") || "";
 const ordre = Astro.url.searchParams.get("ordre") || "asc";
 
-
 const allArtistes = await getArtistsByDate();
 const artistes = await getFilteredArtists(genre, scene, ordre);
 const toutesLesScenes = await getToutesLesScenes();
 
-console.log(artistes);
-
 const listeGenres = [...new Set(allArtistes.map((a) => a.genre_musicale))];
 ---
 
-<Layout title="Programme - Flying Tap Fest" description="Découvrez le programme complet du Flying Tap Fest : les artistes, les horaires et les scènes pour une expérience inoubliable de tap dance." >
+<Layout
+    title="Programme - Flying Tap Fest"
+    description="Découvrez le programme complet du festival."
+>
     <main class="bg-beige min-h-screen pb-24">
         <section class="pt-20 lg:pt-32 pb-12 px-6">
             <div class="max-w-7xl mx-auto">
@@ -34,7 +34,8 @@ const listeGenres = [...new Set(allArtistes.map((a) => a.genre_musicale))];
                 </h1>
             </div>
         </section>
-        <section class="px-6 mb-20">
+
+        <section class="px-6 mb-8">
             <div class="max-w-7xl mx-auto flex flex-col items-center gap-10">
                 <div
                     class="bg-[#1A1A1A] rounded-[40px] p-8 lg:p-12 w-full max-w-5xl shadow-2xl"
@@ -119,30 +120,41 @@ const listeGenres = [...new Set(allArtistes.map((a) => a.genre_musicale))];
 
                 <a
                     href="/programme.pdf"
-                    class="bg-rouge text-beige font-abril text-xl py-5 px-10 rounded-full w-fit flex items-center gap-4 hover:scale-105 transition-transform shadow-xl"
+                    download
+                    class="bg-rouge text-beige font-abril flex items-center justify-center transition-transform hover:scale-105 active:scale-95 shadow-xl rounded-full w-fit mx-auto
+                           text-lg py-3 px-6 gap-3
+                           lg:text-xl lg:py-5 lg:px-10 lg:gap-4"
                 >
                     <img
                         src={DownloadIcon.src}
                         alt=""
-                        class="w-6 h-6 brightness-0 invert"
+                        class="brightness-0 invert w-5 h-5 lg:w-6 lg:h-6"
                     />
-                    Télécharger le programme en PDF
+                    <span>Télécharger le programme en PDF</span>
                 </a>
             </div>
         </section>
-    </main>
 
-    <section class="px-6 py-12">
-        <div class="max-w-7xl mx-auto border-t border-black/10 pt-12">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
-                {artistes.map((artiste) => <CardProgramme artiste={artiste} />)}
+        <section class="px-6 pt-4 pb-12">
+            <div class="max-w-7xl mx-auto border-t border-black/10 pt-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16">
+                    {
+                        artistes.map((artiste) => (
+                            <CardProgramme artiste={artiste} />
+                        ))
+                    }
+                </div>
+
+                {
+                    artistes.length === 0 && (
+                        <div class="text-center py-20">
+                            <p class="font-playfair text-noir/50 text-2xl italic">
+                                Aucun artiste ne correspond à ces critères.
+                            </p>
+                        </div>
+                    )
+                }
             </div>
-
-            {artistes.length === 0 && (
-                <p class="text-center font-playfair text-noir/50 text-2xl py-20">
-                    Aucun artiste ne correspond à ces critères.
-                </p>
-            )}
-        </div>
-    </section>
+        </section>
+    </main>
 </Layout>
