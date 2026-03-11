@@ -4,12 +4,12 @@ import { getArtistsBySceneId, SceneId } from "../../../backend/backend.mjs";
 import CardProgramme from "../../components/cards/CardProgramme.astro";
 import PbImage from "../../components/PbImage.astro";
 
-// 1. Récupération de l'ID et des données
+
 const { id } = Astro.params;
 const scene = await SceneId(id);
 const artistes = await getArtistsBySceneId(id);
 
-// Sécurité si la scène n'existe pas
+
 if (!scene) {
     return Astro.redirect("/Scenes");
 }

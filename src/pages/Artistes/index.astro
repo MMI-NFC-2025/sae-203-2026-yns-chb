@@ -3,7 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import CardArtiste from "../../components/cards/CardArtiste.astro";
 import { pb } from "../../../backend/backend.mjs";
 
-// Récupération de tous les artistes de PocketBase
+
 const artistes = await pb.collection("artistes").getFullList({
     sort: "nom",
 });

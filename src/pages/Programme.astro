@@ -13,15 +13,11 @@ const genre = Astro.url.searchParams.get("genre") || "";
 const scene = Astro.url.searchParams.get("scene") || "";
 const ordre = Astro.url.searchParams.get("ordre") || "asc";
 
-// On appelle ta fonction backend directement ici
 
 const allArtistes = await getArtistsByDate();
 const artistes = await getFilteredArtists(genre, scene, ordre);
 const toutesLesScenes = await getToutesLesScenes();
-// const listeGenres = [
-//     "Jeune Talent", "Comédie Tap", "Soul Tap",
-//     "Tap Jazz", "Hip-Hop Tap", "Irish Tap", "Flamenco Tap"
-// ];
+
 console.log(artistes);
 
 const listeGenres = [...new Set(allArtistes.map((a) => a.genre_musicale))];
@@ -142,7 +138,11 @@ const listeGenres = [...new Set(allArtistes.map((a) => a.genre_musicale))];
                 {artistes.map((artiste) => <CardProgramme artiste={artiste} />)}
             </div>
 
-            {/* ... message si aucun artiste ... */}
+            {artistes.length === 0 && (
+                <p class="text-center font-playfair text-noir/50 text-2xl py-20">
+                    Aucun artiste ne correspond à ces critères.
+                </p>
+            )}
         </div>
     </section>
 </Layout>

@@ -1,6 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Image } from 'astro:assets';
 import CardEquipe from "../components/cards/CardEquipe.astro";
 
 import infosImage from '../assets/img/infos_pratiques.avif';
@@ -81,7 +80,7 @@ const equipe = [
         </div>
 
         <div class="flex gap-8 animate-scroll-equipe">
-            {[...Array(3)].map(() => ( // On duplique 3 fois pour l'infini
+            {[...Array(3)].map(() => ( 
                 <>
                     <CardEquipe 
                         title="Marie Dubois" 

@@ -4,75 +4,95 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="Contact - Flying Tap Fest">
     <main class="bg-[var(--color-beige)] min-h-screen pb-32">
-        <header class="max-w-[1850px] mx-auto px-4 lg:px-10 py-16 lg:py-24">
+        <header
+            class="max-w-[1850px] mx-auto px-4 lg:px-10 py-16 lg:py-24 text-center lg:text-left"
+        >
             <h1
-                class="font-abril text-[var(--color-moutarde)] text-7xl lg:text-[120px] leading-none mb-4 uppercase"
+                class="font-abril text-[var(--color-moutarde)] text-7xl lg:text-[120px] leading-none mb-4"
             >
                 Contact
             </h1>
             <p
-                class="font-abril text-[var(--color-rouge)] text-4xl lg:text-6xl italic"
+                class="font-abril text-[var(--color-rouge)] text-4xl lg:text-6xl"
             >
                 Envoyez-nous un message
             </p>
         </header>
 
         <section class="max-w-[1850px] mx-auto px-4 lg:px-10">
-            <div class="max-w-4xl mx-auto">
+            <div class="max-w-2xl mx-auto">
                 <form
-                    class="bg-[var(--color-taupe)]/60 rounded-[40px] p-8 lg:p-16 border border-[var(--color-noir)]/5 shadow-sm space-y-8"
+                    class="bg-[var(--color-taupe)]/60 rounded-[40px] p-8 lg:p-12 border-[3px] border-[var(--color-moutarde)] shadow-xl space-y-8"
                 >
                     <div class="flex flex-col gap-3">
                         <label
                             for="name"
-                            class="font-playfair text-[var(--color-noir)]/70 text-2xl lg:text-3xl"
-                            >Nom complet</label
+                            class="font-playfair text-[var(--color-noir)] text-2xl lg:text-3xl"
                         >
+                            Nom complet
+                        </label>
                         <input
                             type="text"
                             id="name"
                             placeholder="Votre nom"
-                            class="bg-[var(--color-beige)] border border-[var(--color-rouge)]/30 rounded-2xl p-5 lg:p-6 text-xl lg:text-2xl font-playfair focus:outline-none focus:border-[var(--color-rouge)] transition-colors text-[var(--color-moutarde)] placeholder:text-[var(--color-moutarde)]/40"
+                            class="bg-[var(--color-beige)] border-[3px] border-[var(--color-rouge)] rounded-2xl p-5 text-xl font-playfair focus:outline-none focus:border-[var(--color-moutarde)] transition-all text-[var(--color-moutarde)] placeholder:text-[var(--color-moutarde)]/60"
                         />
                     </div>
 
                     <div class="flex flex-col gap-3">
                         <label
                             for="email"
-                            class="font-playfair text-[var(--color-noir)]/70 text-2xl lg:text-3xl"
-                            >Adresse email</label
+                            class="font-playfair text-[var(--color-noir)] text-2xl lg:text-3xl"
                         >
+                            Adresse email
+                        </label>
                         <input
                             type="email"
                             id="email"
                             placeholder="votre@email.com"
-                            class="bg-[var(--color-beige)] border border-[var(--color-rouge)]/30 rounded-2xl p-5 lg:p-6 text-xl lg:text-2xl font-playfair focus:outline-none focus:border-[var(--color-rouge)] transition-colors text-[var(--color-moutarde)] placeholder:text-[var(--color-moutarde)]/40"
+                            class="bg-[var(--color-beige)] border-[3px] border-[var(--color-rouge)] rounded-2xl p-5 text-xl font-playfair focus:outline-none focus:border-[var(--color-moutarde)] transition-all text-[var(--color-moutarde)] placeholder:text-[var(--color-moutarde)]/60"
+                        />
+                    </div>
+
+                    <div class="flex flex-col gap-3">
+                        <label
+                            for="subject"
+                            class="font-playfair text-[var(--color-noir)] text-2xl lg:text-3xl"
+                        >
+                            Sujet
+                        </label>
+                        <input
+                            type="text"
+                            id="subject"
+                            placeholder="Votre sujet"
+                            class="bg-[var(--color-beige)] border-[3px] border-[var(--color-rouge)] rounded-2xl p-5 text-xl font-playfair focus:outline-none focus:border-[var(--color-moutarde)] transition-all text-[var(--color-moutarde)] placeholder:text-[var(--color-moutarde)]/60"
                         />
                     </div>
 
                     <div class="flex flex-col gap-3">
                         <label
                             for="message"
-                            class="font-playfair text-[var(--color-noir)]/70 text-2xl lg:text-3xl"
-                            >Votre message</label
+                            class="font-playfair text-[var(--color-noir)] text-2xl lg:text-3xl"
                         >
+                            Votre message
+                        </label>
                         <textarea
                             id="message"
-                            rows="6"
+                            rows="8"
                             placeholder="Écrivez votre message ici..."
-                            class="bg-[var(--color-beige)] border border-[var(--color-rouge)]/30 rounded-2xl p-5 lg:p-6 text-xl lg:text-2xl font-playfair focus:outline-none focus:border-[var(--color-rouge)] transition-colors text-[var(--color-moutarde)] placeholder:text-[var(--color-moutarde)]/40 resize-none"
+                            class="bg-[var(--color-beige)] border-[3px] border-[var(--color-rouge)] rounded-2xl p-5 text-xl font-playfair focus:outline-none focus:border-[var(--color-moutarde)] transition-all text-[var(--color-moutarde)] placeholder:text-[var(--color-moutarde)]/60 resize-none"
                         ></textarea>
                     </div>
                 </form>
 
                 <div class="flex justify-center mt-12">
                     <button
-                        class="bg-[var(--color-rouge)] text-[var(--color-beige)] px-12 py-6 rounded-full font-playfair text-2xl lg:text-3xl flex items-center gap-4 hover:bg-[var(--color-noir)] transition-all shadow-xl group"
+                        class="bg-[var(--color-rouge)] text-[var(--color-beige)] px-12 py-5 rounded-full font-playfair text-2xl flex items-center gap-4 hover:brightness-110 transition-all shadow-2xl group"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            width="32"
-                            height="32"
+                            width="28"
+                            height="28"
                             viewBox="0 0 24 24"
                             fill="none"
                             stroke="currentColor"
@@ -80,17 +100,18 @@ import Layout from "../layouts/Layout.astro";
                             stroke-linecap="round"
                             stroke-linejoin="round"
                             class="transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
-                            ><line x1="22" y1="2" x2="11" y2="13"
-                            ></line><polygon points="22 2 15 22 11 13 2 9 22 2"
-                            ></polygon></svg
                         >
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"
+                            ></polygon>
+                        </svg>
                         Envoyer le message
                     </button>
                 </div>
             </div>
         </section>
 
-        <section class="max-w-[1850px] mx-auto px-4 lg:px-10 mt-32">
+        <section class="max-w-[1850px] mx-auto px-4 lg:px-10 mt-32 pb-32">
             <h2
                 class="font-abril text-[var(--color-rouge)] text-6xl lg:text-8xl mb-16"
             >
@@ -102,14 +123,16 @@ import Layout from "../layouts/Layout.astro";
             >
                 {
                     ["Email", "Téléphone", "Adresse"].map((titre) => (
-                        <div class="bg-[var(--color-taupe)]/60 rounded-[50px] p-10 lg:p-14 shadow-sm border border-[var(--color-moutarde)]/20 flex flex-col h-full">
-                            <div class="flex items-center gap-6 mb-8">
+                        <div class="bg-[var(--color-taupe)]/60 rounded-[60px] p-10 lg:p-14 shadow-xl border-[3px] border-[var(--color-moutarde)] flex flex-col min-h-[420px]">
+                            <div
+                                class={`flex items-center gap-6 shrink-0 ${titre === "Téléphone" ? "justify-center" : ""}`}
+                            >
                                 <div class="text-[var(--color-moutarde)]">
                                     {titre === "Email" && (
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
-                                            width="40"
-                                            height="40"
+                                            width="45"
+                                            height="45"
                                             viewBox="0 0 24 24"
                                             fill="none"
                                             stroke="currentColor"
@@ -130,8 +153,8 @@ import Layout from "../layouts/Layout.astro";
                                     {titre === "Téléphone" && (
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
-                                            width="40"
-                                            height="40"
+                                            width="45"
+                                            height="45"
                                             viewBox="0 0 24 24"
                                             fill="none"
                                             stroke="currentColor"
@@ -145,8 +168,8 @@ import Layout from "../layouts/Layout.astro";
                                     {titre === "Adresse" && (
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
-                                            width="40"
-                                            height="40"
+                                            width="45"
+                                            height="45"
                                             viewBox="0 0 24 24"
                                             fill="none"
                                             stroke="currentColor"
@@ -159,15 +182,21 @@ import Layout from "../layouts/Layout.astro";
                                         </svg>
                                     )}
                                 </div>
-                                <h3 class="font-abril text-[var(--color-moutarde)] text-3xl lg:text-4xl">
+                                <h3 class="font-abril text-[var(--color-moutarde)] text-4xl lg:text-5xl">
                                     {titre}
                                 </h3>
                             </div>
-                            <div class="font-playfair text-[var(--color-noir)] text-xl lg:text-3xl space-y-2 mt-auto">
+                            <div
+                                class={`font-playfair text-[var(--color-noir)] text-2xl lg:text-3xl space-y-3 mt-10 leading-tight ${titre === "Téléphone" ? "text-center" : "text-left"}`}
+                            >
                                 {titre === "Email" && (
                                     <>
-                                        <p>contact@flyingtapfest.fr</p>
-                                        <p>presse@flyingtapfest.fr</p>
+                                        <p class="break-all">
+                                            contact@flyingtapfest.fr
+                                        </p>
+                                        <p class="break-all">
+                                            presse@flyingtapfest.fr
+                                        </p>
                                     </>
                                 )}
                                 {titre === "Téléphone" && (
@@ -180,7 +209,7 @@ import Layout from "../layouts/Layout.astro";
                                     <>
                                         <p>Flying Tap Fest</p>
                                         <p>123 Avenue des Claquettes</p>
-                                        <p>25150 Pont-de-Roide</p>
+                                        <p>25150 Pont-de-Roide, France</p>
                                     </>
                                 )}
                             </div>
