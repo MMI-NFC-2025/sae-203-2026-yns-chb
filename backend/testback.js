@@ -1,4 +1,4 @@
-import { ArtistsBySceneName} from './backend.mjs';
+import { updateScene} from './backend.mjs';
 /*
 // liste de tous les artistes triés par date de représentation.
 try {
@@ -61,54 +61,57 @@ try {
     console.error(e);
 }
     
-// permet d'ajouter ou modifier les informations d'un artiste ou d'une scène.
+
+// permet d'ajouter les informations d'un artiste.
 try {
-    const newArtist = await addOrUpdateRecord('Artistes', {
+    const newArtist =  {
         nom: 'Jean Dupont',
         genre_musicale: 'Jazz',
         scene: 'Grande Scène',
         date: '08 Juin 2026',
         horraire: '19:00'
-    });
-    console.log('Artiste ajouté:', newArtist);
+    };
+    await addNewArtiste(newArtist);
 } catch (e) {
     console.error(e);
 }
+    
 
-// Test: Ajouter une nouvelle scène
+//permet d'ajouter les informations d'une scene
 try {
-    const newScene = await addOrUpdateRecord('Scenes', {
+    const newScene =  {
         nom_scene: 'Scène VIP',
-        capacite: 500
-    });
-    console.log('Scène ajoutée:', newScene);
+        localisation: 'Sous la Seine'
+    };
+    await addNewScene(newScene);
 } catch (e) {
     console.error(e);
 }
 
-// Test: Modifier un artiste existant
+
 try {
-    const updated = await addOrUpdateRecord('Artistes', {
-        id: 'wb02c75sykfqcgm',
-        nom: 'Tessa Marlowe (Modifié)',
-        genre_musicale: 'Tap Jazz'
-    });
-    console.log('Artiste modifié:', updated);
+    const data = {
+        nom: 'Clara "Silver Shoes" Delmare Modify',
+        genre_musicale: 'ComédieTap',
+        scene: 'Grande Scène',
+        date: '06 Juin 2026',
+        horraire: '20:00'
+        description: 'Clara Delmare, alias "Silver Shoes", est une artiste de comédie musicale et de tap dance. Avec son énergie débordante et son charisme sur scène, elle captive le public à chaque performance. Son style unique mélange la comédie musicale traditionnelle avec des éléments modernes, créant ainsi une expérience inoubliable pour les spectateurs. Clara est connue pour ses performances dynamiques et sa capacité à faire rire et émouvoir son audience en même temps.'
+       
+    };
+    await updateArtiste('cdwsk7nnz519b5d', data);
 } catch (e) {
     console.error(e);
 }
 
-// Test: Modifier une scène existante
+*/
+
 try {
-    const updatedScene = await addOrUpdateRecord('Scenes', {
-        id: 'm8tfb4hu5lh98pp',
-        nom_scene: 'Grande Scène (Modifiée)',
-        capacite: 1000
-    });
-    console.log('Scène modifiée:', updatedScene);
+    const data = {
+        nom_scene: 'Grande Scène Modify',
+        localisation: 'Au bord de la Seine'
+    };
+    await updateScene('m8tfb4hu5lh98pp', data);
 } catch (e) {
     console.error(e);
 }
-    */
-
-

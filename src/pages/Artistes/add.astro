@@ -1,0 +1,225 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { addNewArtiste } from "../../../backend/backend.mjs";
+
+let message = "";
+let isSuccess = false;
+
+if (Astro.request.method === "POST") {
+    try {
+        const formData = await Astro.request.formData();
+        await addNewArtiste(formData);
+
+        isSuccess = true;
+        message =
+            "L'artiste a été ajouté avec succès à la programmation ! 🕺✨";
+    } catch (error) {
+        console.error("Erreur lors de l'ajout :", error);
+        isSuccess = false;
+        message = "Aïe, une erreur est survenue lors de l'ajout de l'artiste.";
+    }
+}
+---
+
+<Layout title="Ajouter un Artiste - Flying Tap Fest">
+    <main class="bg-[var(--color-beige)] min-h-screen pb-20 lg:pb-32">
+        <header
+            class="px-5 py-8 lg:max-w-[1850px] lg:mx-auto lg:px-10 lg:py-24 text-left"
+        >
+            <a
+                href="/Artistes"
+                class="inline-flex items-center gap-2 font-playfair text-[var(--color-rouge)] text-base lg:text-xl hover:text-[var(--color-moutarde)] transition-colors mb-6 lg:mb-8"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-5 h-5 lg:w-6 lg:h-6"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    ><path d="m15 18-6-6 6-6"></path></svg
+                >
+                Retour <span class="hidden lg:inline">aux artistes</span>
+            </a>
+            <h1
+                class="font-abril text-[var(--color-moutarde)] text-5xl lg:text-[100px] leading-none mb-2 lg:mb-4"
+            >
+                Ajouter
+            </h1>
+            <p
+                class="font-abril text-[var(--color-rouge)] text-2xl lg:text-5xl"
+            >
+                Un nouvel artiste
+            </p>
+        </header>
+
+        <section class="px-5 lg:max-w-[1850px] lg:mx-auto lg:px-10">
+            <div class="lg:max-w-3xl lg:mx-auto">
+                {
+                    message && (
+                        <div
+                            class={`mb-6 lg:mb-8 p-4 lg:p-6 rounded-xl lg:rounded-2xl border-2 lg:border-[3px] font-playfair text-base lg:text-xl text-center shadow-sm lg:shadow-lg ${isSuccess ? "bg-[#D9D4C7] border-[var(--color-moutarde)] text-[var(--color-noir)]" : "bg-red-100 border-[var(--color-rouge)] text-[var(--color-rouge)]"}`}
+                        >
+                            {message}
+                        </div>
+                    )
+                }
+
+                <form
+                    method="POST"
+                    enctype="multipart/form-data"
+                    class="bg-[#D9D4C7]/50 rounded-2xl lg:rounded-[40px] p-5 lg:p-12 border-2 lg:border-[3px] border-[var(--color-moutarde)] shadow-sm lg:shadow-xl space-y-5 lg:space-y-8"
+                >
+                    <div class="flex flex-col gap-1 lg:gap-3">
+                        <label
+                            for="nom"
+                            class="font-playfair text-[var(--color-noir)] text-base lg:text-3xl font-bold lg:font-normal"
+                        >
+                            Nom de l'artiste
+                        </label>
+                        <input
+                            type="text"
+                            id="nom"
+                            name="nom"
+                            required
+                            placeholder="Ex: Sarah Reich"
+                            class="bg-[var(--color-beige)] border-2 lg:border-[3px] border-[var(--color-rouge)] rounded-xl lg:rounded-2xl p-3 lg:p-5 text-base lg:text-xl font-playfair focus:outline-none focus:border-[var(--color-moutarde)] transition-all text-[var(--color-moutarde)] placeholder:text-[var(--color-moutarde)]/60 w-full"
+                        />
+                    </div>
+
+                    <div
+                        class="flex flex-col gap-5 lg:grid lg:grid-cols-2 lg:gap-8"
+                    >
+                        <div class="flex flex-col gap-1 lg:gap-3">
+                            <label
+                                for="date"
+                                class="font-playfair text-[var(--color-noir)] text-base lg:text-3xl font-bold lg:font-normal"
+                            >
+                                Date de passage
+                            </label>
+                            <input
+                                type="date"
+                                id="date"
+                                name="date"
+                                required
+                                class="bg-[var(--color-beige)] border-2 lg:border-[3px] border-[var(--color-rouge)] rounded-xl lg:rounded-2xl p-3 lg:p-5 text-base lg:text-xl font-playfair focus:outline-none focus:border-[var(--color-moutarde)] transition-all text-[var(--color-moutarde)] w-full"
+                            />
+                        </div>
+
+                        <div class="flex flex-col gap-1 lg:gap-3">
+                            <label
+                                for="horraire"
+                                class="font-playfair text-[var(--color-noir)] text-base lg:text-3xl font-bold lg:font-normal"
+                            >
+                                Horaire
+                            </label>
+                            <input
+                                type="text"
+                                id="horraire"
+                                name="horraire"
+                                placeholder="Ex: 20h30 - 22h00"
+                                required
+                                class="bg-[var(--color-beige)] border-2 lg:border-[3px] border-[var(--color-rouge)] rounded-xl lg:rounded-2xl p-3 lg:p-5 text-base lg:text-xl font-playfair focus:outline-none focus:border-[var(--color-moutarde)] transition-all text-[var(--color-moutarde)] placeholder:text-[var(--color-moutarde)]/60 w-full"
+                            />
+                        </div>
+                    </div>
+
+                    <div
+                        class="flex flex-col gap-5 lg:grid lg:grid-cols-2 lg:gap-8"
+                    >
+                        <div class="flex flex-col gap-1 lg:gap-3">
+                            <label
+                                for="scene"
+                                class="font-playfair text-[var(--color-noir)] text-base lg:text-3xl font-bold lg:font-normal"
+                            >
+                                Scène
+                            </label>
+                            <input
+                                type="text"
+                                id="scene"
+                                name="scene"
+                                placeholder="Ex: Scène Principale"
+                                required
+                                class="bg-[var(--color-beige)] border-2 lg:border-[3px] border-[var(--color-rouge)] rounded-xl lg:rounded-2xl p-3 lg:p-5 text-base lg:text-xl font-playfair focus:outline-none focus:border-[var(--color-moutarde)] transition-all text-[var(--color-moutarde)] placeholder:text-[var(--color-moutarde)]/60 w-full"
+                            />
+                        </div>
+
+                        <div class="flex flex-col gap-1 lg:gap-3">
+                            <label
+                                for="genre_musicale"
+                                class="font-playfair text-[var(--color-noir)] text-base lg:text-3xl font-bold lg:font-normal"
+                            >
+                                Genre musical
+                            </label>
+                            <input
+                                type="text"
+                                id="genre_musicale"
+                                name="genre_musicale"
+                                placeholder="Ex: Jazz, Claquettes..."
+                                required
+                                class="bg-[var(--color-beige)] border-2 lg:border-[3px] border-[var(--color-rouge)] rounded-xl lg:rounded-2xl p-3 lg:p-5 text-base lg:text-xl font-playfair focus:outline-none focus:border-[var(--color-moutarde)] transition-all text-[var(--color-moutarde)] placeholder:text-[var(--color-moutarde)]/60 w-full"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col gap-1 lg:gap-3">
+                        <label
+                            for="description"
+                            class="font-playfair text-[var(--color-noir)] text-base lg:text-3xl font-bold lg:font-normal"
+                        >
+                            Description
+                        </label>
+                        <textarea
+                            id="description"
+                            name="description"
+                            rows="4"
+                            required
+                            placeholder="Biographie complète de l'artiste..."
+                            class="bg-[var(--color-beige)] border-2 lg:border-[3px] border-[var(--color-rouge)] rounded-xl lg:rounded-2xl p-3 lg:p-5 text-base lg:text-xl font-playfair focus:outline-none focus:border-[var(--color-moutarde)] transition-all text-[var(--color-moutarde)] placeholder:text-[var(--color-moutarde)]/60 resize-none w-full lg:rows-5"
+                        ></textarea>
+                    </div>
+
+                    <div class="flex flex-col gap-1 lg:gap-3">
+                        <label
+                            for="image"
+                            class="font-playfair text-[var(--color-noir)] text-base lg:text-3xl font-bold lg:font-normal"
+                        >
+                            Photo de l'artiste
+                        </label>
+                        <input
+                            type="file"
+                            id="image"
+                            name="image"
+                            accept="image/*"
+                            required
+                            class="bg-[var(--color-beige)] border-2 lg:border-[3px] border-[var(--color-rouge)] rounded-xl lg:rounded-2xl p-2 lg:p-5 text-sm lg:text-xl font-playfair focus:outline-none focus:border-[var(--color-moutarde)] transition-all text-[var(--color-moutarde)] w-full cursor-pointer file:mr-3 lg:file:mr-4 file:py-2 file:px-3 lg:file:px-4 file:rounded-lg lg:file:rounded-full file:border-0 file:text-xs lg:file:text-sm file:font-bold file:bg-[var(--color-rouge)] file:text-[var(--color-beige)] hover:file:brightness-110"
+                        />
+                    </div>
+
+                    <div class="pt-4 mt-2 lg:mt-12 lg:flex lg:justify-center">
+                        <button
+                            type="submit"
+                            class="w-full lg:w-auto bg-[var(--color-rouge)] text-[var(--color-beige)] py-4 lg:px-12 lg:py-5 rounded-xl lg:rounded-full font-playfair text-lg lg:text-2xl flex items-center justify-center gap-2 lg:gap-4 shadow-md lg:shadow-xl active:scale-95 transition-all group hover:brightness-110"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="w-5 h-5 lg:w-6 lg:h-6 transform group-hover:scale-110 transition-transform"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                ><path d="M5 12h14"></path><path d="M12 5v14"
+                                ></path></svg
+                            >
+                            Ajouter l'artiste
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+</Layout>

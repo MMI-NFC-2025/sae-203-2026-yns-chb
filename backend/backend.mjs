@@ -50,23 +50,33 @@ export async function getArtistsBySceneName(nom_scene) {
     return artists;
 }
 
-// permet d'ajouter ou modifier les informations d'un artiste ou d'une scène.
-export async function addOrUpdateRecord(collectionName, recordData) {
-    try {
-        if (recordData.id) {
-
-            const updated = await pb.collection(collectionName).update(recordData.id, recordData);
-            return updated;
-        } else {
-
-            const created = await pb.collection(collectionName).create(recordData);
-            return created;
-        }
-    } catch (e) {
-        console.error('Erreur lors de l\'ajout/modification:', e);
-        throw e;
-    }
+// permet d'ajouter les information d'un artiste 
+export async function addNewArtiste(newartiste) {
+    await pb.collection('Artistes').create(newartiste);
 }
+
+
+// permet d'ajouter les information d'une scene
+export async function addNewScene(newscene) {
+    await pb.collection('Scenes').create(newscene);
+}
+
+//permet de modifier les informations d'un artiste
+
+export async function updateArtiste(id, data) {
+    await pb.collection('Artistes').update(id, data);
+}
+
+//permet de modifier les informations d'une scene
+export async function updateScene(id, data) {
+    await pb.collection('Scenes').update(id, data);
+}
+
+
+
+
+
+
 
 
 export async function getFilteredArtists(genre = "", scene = "", ordre = "asc") {

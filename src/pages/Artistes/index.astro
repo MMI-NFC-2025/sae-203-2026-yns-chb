@@ -3,20 +3,31 @@ import Layout from "../../layouts/Layout.astro";
 import CardArtiste from "../../components/cards/CardArtiste.astro";
 import { pb } from "../../../backend/backend.mjs";
 
-
 const artistes = await pb.collection("artistes").getFullList({
     sort: "nom",
 });
 ---
 
-<Layout title="Artistes - Flying Tap Fest" description="DÃ©couvrez les artistes qui feront vibrer le Flying Tap Fest : des talents Ã©mergents aux lÃ©gendes du tap dance, explorez leurs profils et prÃ©parez-vous Ã  une expÃ©rience inoubliable." >
+<Layout
+    title="Artistes - Flying Tap Fest"
+    description="DÃ©couvrez les artistes qui feront vibrer le Flying Tap Fest : des talents Ã©mergents aux lÃ©gendes du tap dance, explorez leurs profils et prÃ©parez-vous Ã  une expÃ©rience inoubliable."
+>
     <main class="bg-beige min-h-screen py-24">
         <div class="max-w-350 mx-auto px-6">
-            <h1
-                class="font-abril text-moutarde text-7xl md:text-8xl lg:text-[150px] mb-20 leading-none"
-            >
-                Artistes
-            </h1>
+            <div class="mb-12 flex flex-col items-start gap-6 md:mb-20">
+                <h1
+                    class="font-abril text-moutarde text-7xl md:text-8xl lg:text-[150px] leading-none"
+                >
+                    Artistes
+                </h1>
+
+                <a
+                    href="/Artistes/add"
+                    class="inline-flex w-auto items-center justify-center rounded-full bg-rouge px-5 py-3 font-abril text-base tracking-wide text-beige transition-transform duration-300 hover:scale-105 active:scale-95 md:px-10 md:py-4 md:text-xl"
+                >
+                    Ajouter un artiste
+                </a>
+            </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 {
@@ -42,4 +53,3 @@ const artistes = await pb.collection("artistes").getFullList({
         </div>
     </main>
 </Layout>
-

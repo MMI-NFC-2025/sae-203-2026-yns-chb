@@ -3,21 +3,26 @@ import Layout from "../../layouts/Layout.astro";
 import { getAllScenes } from "../../../backend/backend.mjs";
 import PbImage from "../../components/PbImage.astro";
 
-
 const scenes = await getAllScenes();
 ---
 
-<Layout title="Les ScÃ¨nes - Flying Tap Fest">
+<Layout title="Les Scènes - Flying Tap Fest">
     <main class="bg-beige min-h-screen pb-24">
         <header class="max-w-462.5 mx-auto px-4 lg:px-10 py-16 lg:py-24">
             <h1
                 class="font-abril text-moutarde text-7xl lg:text-[120px] leading-none"
             >
-                Les ScÃ¨nes
+                Les Scènes
             </h1>
             <p class="font-playfair text-rouge text-3xl lg:text-5xl mt-6">
-                Le cÅ“ur battant du festival
+                Le coeur battant du festival
             </p>
+            <a
+                href="/Scenes/add"
+                class="inline-flex w-auto items-center justify-center rounded-full bg-rouge px-5 py-3 font-abril text-base tracking-wide text-beige transition-transform duration-300 hover:scale-105 active:scale-95 md:px-10 md:py-4 md:text-xl"
+            >
+                Ajouter une scène
+            </a>
         </header>
 
         <section class="max-w-462.5 mx-auto px-4 lg:px-10 py-12">
@@ -64,11 +69,10 @@ const scenes = await getAllScenes();
             {
                 scenes.length === 0 && (
                     <p class="text-center font-playfair text-noir/50 text-2xl py-20">
-                        Aucune scÃ¨ne disponible.
+                        Aucune scène disponible.
                     </p>
                 )
             }
         </section>
     </main>
 </Layout>
-

@@ -79,7 +79,7 @@ import Layout from "../layouts/Layout.astro";
                         <textarea
                             id="message"
                             rows="6"
-                            placeholder="Ã‰crivez votre message ici..."
+                            placeholder="   Ecrivez votre message ici..."
                             class="bg-beige border lg:border-[3px] border-rouge rounded-xl lg:rounded-2xl p-3 lg:p-5 text-base lg:text-xl font-playfair focus:outline-none focus:border-moutarde transition-all text-moutarde placeholder:text-moutarde/60 resize-none lg:rows-8"
                         ></textarea>
                     </div>
@@ -115,7 +115,7 @@ import Layout from "../layouts/Layout.astro";
             <h2
                 class="font-abril text-rouge text-5xl lg:text-8xl mb-8 lg:mb-16 text-left lg:text-center"
             >
-                CoordonnÃ©es
+                Coordonnées
             </h2>
 
             <div
@@ -123,7 +123,7 @@ import Layout from "../layouts/Layout.astro";
             >
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
                     {
-                        ["Email", "TÃ©lÃ©phone", "Adresse"].map((titre) => (
+                        ["Email", "Téléphone", "Adresse"].map((titre) => (
                             <div class="bg-[#D9D4C7]/50 rounded-[30px] p-8 shadow-sm border border-moutarde lg:bg-transparent lg:rounded-none lg:p-0 lg:shadow-none lg:border-none flex flex-col items-start lg:items-center text-left lg:text-center">
                                 <div class="flex items-center lg:flex-col gap-3 lg:gap-4 shrink-0 mb-4 lg:mb-6">
                                     <div class="text-moutarde w-6 h-6 lg:w-12 lg:h-12 flex items-center justify-center">
@@ -148,7 +148,7 @@ import Layout from "../layouts/Layout.astro";
                                                 <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                                             </svg>
                                         )}
-                                        {titre === "TÃ©lÃ©phone" && (
+                                        {titre === "Téléphone" && (
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 viewBox="0 0 24 24"
@@ -194,7 +194,7 @@ import Layout from "../layouts/Layout.astro";
                                             </p>
                                         </>
                                     )}
-                                    {titre === "TÃ©lÃ©phone" && (
+                                    {titre === "Téléphone" && (
                                         <>
                                             <p>+33 1 23 45 67 89</p>
                                             <p>Lun-Ven: 9h-18h</p>

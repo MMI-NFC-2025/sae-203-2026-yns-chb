@@ -18,9 +18,9 @@ import logoCM from "../assets/img/creditmutuel.jpg";
 
 const logos = [
 	{ src: logoDecathlon, alt: "Decathlon" },
-	{ src: logoPMA, alt: "Pays de MontbÃ©liard AgglomÃ©ration" },
+	{ src: logoPMA, alt: "Pays de Montbéliard Agglomération" },
 	{ src: logoMolo, alt: "Le Moloco" },
-	{ src: logoCM, alt: "CrÃ©dit Mutuel" },
+	{ src: logoCM, alt: "Crédit Mutuel" },
 ];
 
 const duplicatedLogos = [...logos, ...logos, ...logos, ...logos];
@@ -29,7 +29,7 @@ const stats = [
 	{ num: "100+", txt: "Drones pour le show" },
 	{ num: "2", txt: "Jours de festival" },
 	{ num: "1k", txt: "Spectateurs" },
-	{ num: "8+", txt: "Artistes sur scÃ¨ne" },
+	{ num: "8+", txt: "Artistes sur scène" },
 ];
 ---
 
@@ -73,46 +73,42 @@ const stats = [
 				<p
 					class="font-playfair text-xl lg:text-2xl text-noir italic opacity-90"
 				>
-					DÃ©couvrez tout ce que le Flying Tap Fest a Ã  offrir
+					Découvrez tout ce que le Flying Tap Fest a à offrir
 				</p>
 			</div>
 
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
 				<CardFestival
 					title="Drones"
-					description="Le spectacle de drones sera un moment magique oÃ¹ des centaines de lumiÃ¨res danseront dans le ciel..."
+					description="Le spectacle de drones sera un moment magique où des centaines de lumières danseront dans le ciel..."
 					imgSrc={dronesImg}
 					href="/drones"
 				/>
 				<CardFestival
 					title="Programme"
-					description="DÃ©couvrez notre programmation complÃ¨te avec plus de 8 artistes sur 2 jours..."
+					description="Découvrez notre programmation complète avec plus de 8 artistes sur 2 jours..."
 					imgSrc={programmeImg}
-					href="/programme"
+					href="/Programme"
 				/>
 				<CardFestival
 					title="Artistes"
-					description="Des lÃ©gendes des claquettes aux jeunes prodiges, rencontrez tous nos artistes exceptionnels..."
+					description="Des légendes des claquettes aux jeunes prodiges, rencontrez tous nos artistes exceptionnels..."
 					imgSrc={artistesImg}
-					href="/artistes"
+					href="/Artistes"
 				/>
 				<CardFestival
 					title="Infos Pratiques"
-					description="Tarifs, accÃ¨s, hÃ©bergement... Toutes les informations pour prÃ©parer votre venue au festival..."
+					description="Tarifs, accès, hébergement... Toutes les informations pour préparer votre venue au festival..."
 					imgSrc={infosImg}
-					href="/infos"
+					href="/Info"
 				/>
 			</div>
 		</div>
 	</section>
 
-	<section
-		class="bg-beige py-12 border-y border-taupe/30 overflow-hidden"
-	>
+	<section class="bg-beige py-12 border-y border-taupe/30 overflow-hidden">
 		<div class="max-w-7xl mx-auto px-6 mb-8">
-			<h2
-				class="font-abril text-2xl uppercase text-center text-noir"
-			>
+			<h2 class="font-abril text-2xl uppercase text-center text-noir">
 				Nos Partenaires
 			</h2>
 		</div>
@@ -140,13 +136,13 @@ const stats = [
 				<h2
 					class="font-abril text-white text-5xl lg:text-8xl leading-tight mb-8 uppercase"
 				>
-					PrÃªt Ã  vivre <br /> l'expÃ©rience ?
+					Prêt à vivre <br /> l'expérience ?
 				</h2>
 				<p
 					class="font-playfair text-white text-xl lg:text-3xl mb-12 opacity-90 italic"
 				>
-					Ne manquez pas l'Ã©vÃ©nement <br class="md:hidden" /> incontournable
-					de l'Ã©tÃ© 2026
+					Ne manquez pas l'événement <br class="md:hidden" /> incontournable
+					de l'été 2026
 				</p>
 				<a
 					href="/Contact"
@@ -175,4 +171,3 @@ const stats = [
 		animation: scroll 30s linear infinite;
 	}
 </style>
-
