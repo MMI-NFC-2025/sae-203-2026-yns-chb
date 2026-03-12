@@ -75,10 +75,6 @@ export async function updateScene(id, data) {
 
 
 
-
-
-
-
 export async function getFilteredArtists(genre = "", scene = "", ordre = "asc") {
     let filters = [];
 

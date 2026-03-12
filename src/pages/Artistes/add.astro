@@ -22,13 +22,13 @@ if (Astro.request.method === "POST") {
 ---
 
 <Layout title="Ajouter un Artiste - Flying Tap Fest">
-    <main class="bg-[var(--color-beige)] min-h-screen pb-20 lg:pb-32">
+    <main class="bg-beige min-h-screen pb-20 lg:pb-32">
         <header
             class="px-5 py-8 lg:max-w-[1850px] lg:mx-auto lg:px-10 lg:py-24 text-left"
         >
             <a
                 href="/Artistes"
-                class="inline-flex items-center gap-2 font-playfair text-[var(--color-rouge)] text-base lg:text-xl hover:text-[var(--color-moutarde)] transition-colors mb-6 lg:mb-8"
+                class="inline-flex items-center gap-2 font-playfair text-rouge text-base lg:text-xl hover:text-moutarde transition-colors mb-6 lg:mb-8"
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -44,12 +44,12 @@ if (Astro.request.method === "POST") {
                 Retour <span class="hidden lg:inline">aux artistes</span>
             </a>
             <h1
-                class="font-abril text-[var(--color-moutarde)] text-5xl lg:text-[100px] leading-none mb-2 lg:mb-4"
+                class="font-abril text-moutarde text-5xl lg:text-[100px] leading-none mb-2 lg:mb-4"
             >
                 Ajouter
             </h1>
             <p
-                class="font-abril text-[var(--color-rouge)] text-2xl lg:text-5xl"
+                class="font-abril text-rouge text-2xl lg:text-5xl"
             >
                 Un nouvel artiste
             </p>
@@ -70,12 +70,12 @@ if (Astro.request.method === "POST") {
                 <form
                     method="POST"
                     enctype="multipart/form-data"
-                    class="bg-[#D9D4C7]/50 rounded-2xl lg:rounded-[40px] p-5 lg:p-12 border-2 lg:border-[3px] border-[var(--color-moutarde)] shadow-sm lg:shadow-xl space-y-5 lg:space-y-8"
+                    class="bg-[#D9D4C7]/50 rounded-2xl lg:rounded-[40px] p-5 lg:p-12 border-2 lg:border-[3px] border-moutarde shadow-sm lg:shadow-xl space-y-5 lg:space-y-8"
                 >
                     <div class="flex flex-col gap-1 lg:gap-3">
                         <label
                             for="nom"
-                            class="font-playfair text-[var(--color-noir)] text-base lg:text-3xl font-bold lg:font-normal"
+                            class="font-playfair text-noir text-base lg:text-3xl font-bold lg:font-normal"
                         >
                             Nom de l'artiste
                         </label>
@@ -85,7 +85,7 @@ if (Astro.request.method === "POST") {
                             name="nom"
                             required
                             placeholder="Ex: Sarah Reich"
-                            class="bg-[var(--color-beige)] border-2 lg:border-[3px] border-[var(--color-rouge)] rounded-xl lg:rounded-2xl p-3 lg:p-5 text-base lg:text-xl font-playfair focus:outline-none focus:border-[var(--color-moutarde)] transition-all text-[var(--color-moutarde)] placeholder:text-[var(--color-moutarde)]/60 w-full"
+                            class="bg-beige border-2 lg:border-[3px] border-rouge rounded-xl lg:rounded-2xl p-3 lg:p-5 text-base lg:text-xl font-playfair focus:outline-none focus:border-[var(--color-moutarde)] transition-all text-[var(--color-moutarde)] placeholder:text-[var(--color-moutarde)]/60 w-full"
                         />
                     </div>
 
@@ -95,7 +95,7 @@ if (Astro.request.method === "POST") {
                         <div class="flex flex-col gap-1 lg:gap-3">
                             <label
                                 for="date"
-                                class="font-playfair text-[var(--color-noir)] text-base lg:text-3xl font-bold lg:font-normal"
+                                class="font-playfair text-noir text-base lg:text-3xl font-bold lg:font-normal"
                             >
                                 Date de passage
                             </label>
@@ -104,14 +104,14 @@ if (Astro.request.method === "POST") {
                                 id="date"
                                 name="date"
                                 required
-                                class="bg-[var(--color-beige)] border-2 lg:border-[3px] border-[var(--color-rouge)] rounded-xl lg:rounded-2xl p-3 lg:p-5 text-base lg:text-xl font-playfair focus:outline-none focus:border-[var(--color-moutarde)] transition-all text-[var(--color-moutarde)] w-full"
+                                class="bg-beige border-2 lg:border-[3px] border-rouge rounded-xl lg:rounded-2xl p-3 lg:p-5 text-base lg:text-xl font-playfair focus:outline-none focus:border-[var(--color-moutarde)] transition-all text-[var(--color-moutarde)] w-full"
                             />
                         </div>
 
                         <div class="flex flex-col gap-1 lg:gap-3">
                             <label
                                 for="horraire"
-                                class="font-playfair text-[var(--color-noir)] text-base lg:text-3xl font-bold lg:font-normal"
+                                class="font-playfair text-noir text-base lg:text-3xl font-bold lg:font-normal"
                             >
                                 Horaire
                             </label>
