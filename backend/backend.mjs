@@ -1,5 +1,5 @@
 import PocketBase from 'pocketbase';
-export const pb = new PocketBase('http://127.0.0.1:8090');
+export const pb = new PocketBase('https://flyingtapfest.yanischouhib.fr:443');
 
 
 //liste de tous les artistes triés par date de représentation.
