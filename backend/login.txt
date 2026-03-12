@@ -1,0 +1,4 @@
+login : yanis.forster@gmail.com 
+password : ChicagoBulls1966@
+
+le pocketbase se trouve dans le dossier project
